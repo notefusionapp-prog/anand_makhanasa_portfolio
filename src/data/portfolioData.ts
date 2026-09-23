@@ -60,7 +60,7 @@ export const PERSONAL_INFO = {
   platforms: ["Android", "iOS"],
   stats: [
     { label: "Years Experience", value: "2.5+" },
-    { label: "Published on Play Store", value: "8 Apps" },
+    { label: "Published on Play Store", value: "8+ Apps" },
     { label: "Platforms Supported", value: "iOS & Android" },
     { label: "State Management", value: "Bloc & GetX" },
   ]

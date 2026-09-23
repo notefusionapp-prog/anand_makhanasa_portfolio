@@ -36,7 +36,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenResume }) => {
         {/* 4. Professional Experience */}
         <ExperienceSection />
 
-        {/* 5. Published Applications (8 Google Play Store Apps) */}
+        {/* 5. Published Applications (8+ Google Play Store Apps) */}
         <PublishedAppsSection />
 
         {/* 6. Commercial & Enterprise Projects */}

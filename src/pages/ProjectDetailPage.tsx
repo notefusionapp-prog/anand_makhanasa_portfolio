@@ -83,7 +83,7 @@ export const ProjectDetailPage: React.FC = () => {
             className="inline-flex items-center gap-2 text-xs font-bold text-[#0d6efd] dark:text-blue-400 hover:underline"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to All 8 Published Apps</span>
+            <span>Back to All 8+ Published Apps</span>
           </Link>
         </div>
 
@@ -259,7 +259,7 @@ export const ProjectDetailPage: React.FC = () => {
               More Applications Built by Anand Makhanasa
             </h2>
             <Link to="/projects" className="text-xs font-bold text-[#0d6efd] hover:underline flex items-center gap-1">
-              <span>View All 8 Apps</span>
+              <span>View All 8+ Apps</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

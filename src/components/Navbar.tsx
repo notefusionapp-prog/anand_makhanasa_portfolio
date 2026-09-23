@@ -139,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 : 'text-slate-600 dark:text-slate-300 hover:text-[#0B1B3D] dark:hover:text-white'
             }`}
           >
-            Published Apps (8)
+            Published Apps (8+)
           </Link>
 
           <button
@@ -236,7 +236,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-4 py-2.5 rounded-xl text-left text-xs font-bold text-[#0B1B3D] dark:text-white hover:bg-blue-50 dark:hover:bg-blue-950/60 flex items-center justify-between"
               >
-                <span>8 Published Apps</span>
+                <span>8+ Published Apps</span>
               </Link>
 
               <button

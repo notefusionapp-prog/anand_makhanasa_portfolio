@@ -89,7 +89,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
     <div className="pt-28 pb-20 min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 transition-colors duration-300">
       <SEOHead 
         title="About Anand Makhanasa — Senior Flutter & Mobile Application Developer"
-        description="Learn about Anand Makhanasa, a Senior Flutter & Mobile Application Developer with 2.5+ years building production Android & iOS applications, with 8 apps on Google Play."
+        description="Learn about Anand Makhanasa, a Senior Flutter & Mobile Application Developer with 2.5+ years building production Android & iOS applications, with 8+ apps on Google Play."
         canonicalPath="/about"
         ogType="profile"
         structuredData={profileStructuredData}
@@ -156,7 +156,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Professional Exp</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
-                  <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">8 Apps</div>
+                  <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">8+ Apps</div>
                   <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Google Play Store</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
@@ -195,7 +195,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
                   className="px-5 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-[#0B1B3D] dark:text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all"
                 >
                   <Smartphone className="w-4 h-4 text-[#0d6efd]" />
-                  <span>View 8 Published Apps</span>
+                  <span>View 8+ Published Apps</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -340,7 +340,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
                   <span>Published Applications</span>
                 </h2>
                 <Link to="/projects" className="text-xs font-bold text-[#0d6efd] hover:underline flex items-center gap-1">
-                  <span>View All 8</span>
+                  <span>View All 8+</span>
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>

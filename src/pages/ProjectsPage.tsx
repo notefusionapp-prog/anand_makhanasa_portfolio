@@ -66,7 +66,7 @@ export const ProjectsPage: React.FC = () => {
     <div className="pt-28 pb-20 min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 transition-colors duration-300">
       <SEOHead 
         title="Published Mobile Applications & Projects — Anand Makhanasa"
-        description="Explore 8 production mobile applications engineered with Flutter, Dart, Firebase, Bloc, and REST APIs by Senior Mobile Developer Anand Makhanasa on Google Play Store."
+        description="Explore 8+ production mobile applications engineered with Flutter, Dart, Firebase, Bloc, and REST APIs by Senior Mobile Developer Anand Makhanasa on Google Play Store."
         canonicalPath="/projects"
         structuredData={projectsCollectionSchema}
       />
@@ -89,7 +89,7 @@ export const ProjectsPage: React.FC = () => {
             Published Mobile Applications
           </h1>
           <p className="mt-4 text-sm sm:text-base text-[#475569] dark:text-slate-300 leading-relaxed">
-            All 8 production applications listed below were engineered with Flutter and Dart, featuring robust architectures, real-time sync, and production deployments on the Google Play Store.
+            All 8+ production applications listed below were engineered with Flutter and Dart, featuring robust architectures, real-time sync, and production deployments on the Google Play Store.
           </p>
 
           {/* Filter Pills */}
@@ -102,7 +102,7 @@ export const ProjectsPage: React.FC = () => {
                   : 'bg-white dark:bg-[#0B1B3D] border border-blue-100 dark:border-blue-900 text-slate-600 dark:text-slate-300 hover:border-blue-300'
               }`}
             >
-              All Published Apps ({PUBLISHED_APPS.length})
+              All Published Apps (8+)
             </button>
             <button
               onClick={() => setSelectedFilter('productivity')}

@@ -198,7 +198,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               variants={itemVariants}
               className="mt-5 text-base sm:text-lg text-[#475569] dark:text-slate-300 font-normal leading-relaxed max-w-xl"
             >
-              Senior Flutter &amp; Mobile Application Developer building high-performance, cross-platform Android &amp; iOS applications with Flutter, Dart, Firebase, REST APIs, and Bloc/Cubit architecture. Proud developer with 8 published production applications on the Google Play Store.
+              Senior Flutter &amp; Mobile Application Developer building high-performance, cross-platform Android &amp; iOS applications with Flutter, Dart, Firebase, REST APIs, and Bloc/Cubit architecture. Proud developer with 8+ published production applications on the Google Play Store.
             </motion.p>
 
             {/* Verified Credentials Checklist */}
@@ -208,7 +208,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             >
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#10b981] shrink-0" />
-                <span>8 Published Apps</span>
+                <span>8+ Published Apps</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#0d6efd] dark:text-blue-400 shrink-0" />
@@ -252,7 +252,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Years Experience</div>
               </div>
               <div>
-                <div className="font-mono text-2xl font-extrabold text-[#10b981] tracking-tight">8</div>
+                <div className="font-mono text-2xl font-extrabold text-[#10b981] tracking-tight">8+</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Published Store Apps</div>
               </div>
               <div>
@@ -402,7 +402,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-slate-900 dark:text-white">8 Published Apps</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">8+ Published Apps</span>
                     <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">
                       Live
                     </span>
