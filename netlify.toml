@@ -1,0 +1,14 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Netlify Form handling
+[forms]
+  # Submissions to any form will be processed by Netlify Forms
+  # Notifications are configured in Netlify Dashboard:
+  # Site Settings > Forms > Form notifications > Email notification to anandmakhanasa1631@gmail.com

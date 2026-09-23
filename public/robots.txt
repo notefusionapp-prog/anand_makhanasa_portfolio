@@ -1,0 +1,12 @@
+# robots.txt for Anand Makhanasa — Senior Flutter & Mobile Application Developer
+# Allow full crawling for search engines and image bots
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /favicon*
+Allow: /*.png
+Allow: /*.svg
+
+# Sitemap
+Sitemap: https://anandmakhanasa.com/sitemap.xml

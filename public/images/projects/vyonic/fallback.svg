@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" width="540" height="960">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1b3d"/>
+      <stop offset="100%" stop-color="#050a17"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="540" height="960" fill="url(#bg)"/>
+  
+  <!-- Subtle Top App Header Bar -->
+  <rect x="0" y="0" width="540" height="88" fill="#0f1f42" opacity="0.9"/>
+  <circle cx="48" cy="44" r="16" fill="#f43f5e" opacity="0.3"/>
+  <rect x="80" y="36" width="160" height="16" rx="8" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Center Decorative App Mockup Preview -->
+  <g transform="translate(45, 140)">
+    <!-- Main Card -->
+    <rect width="450" height="220" rx="24" fill="url(#cardGrad)" stroke="#f43f5e" stroke-width="2" stroke-opacity="0.4"/>
+    <circle cx="60" cy="60" r="28" fill="#f43f5e" opacity="0.25"/>
+    <circle cx="60" cy="60" r="14" fill="#f43f5e"/>
+    <rect x="110" y="44" width="220" height="18" rx="9" fill="#ffffff" opacity="0.9"/>
+    <rect x="110" y="72" width="140" height="12" rx="6" fill="#94a3b8" opacity="0.7"/>
+
+    <rect x="40" y="125" width="115" height="60" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <rect x="165" y="125" width="115" height="60" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <rect x="290" y="125" width="120" height="60" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  </g>
+
+  <!-- Secondary Cards -->
+  <g transform="translate(45, 395)">
+    <rect width="450" height="140" rx="20" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    <rect x="30" y="30" width="180" height="16" rx="8" fill="#ffffff" opacity="0.8"/>
+    <rect x="30" y="58" width="260" height="12" rx="6" fill="#64748b" opacity="0.7"/>
+    <rect x="30" y="80" width="200" height="12" rx="6" fill="#64748b" opacity="0.7"/>
+    <circle cx="390" cy="70" r="24" fill="#f43f5e" opacity="0.3"/>
+  </g>
+
+  <g transform="translate(45, 560)">
+    <rect width="450" height="140" rx="20" fill="url(#cardGrad)" stroke="#334155" stroke-width="1"/>
+    <rect x="30" y="30" width="200" height="16" rx="8" fill="#ffffff" opacity="0.8"/>
+    <rect x="30" y="58" width="280" height="12" rx="6" fill="#64748b" opacity="0.7"/>
+    <rect x="30" y="80" width="220" height="12" rx="6" fill="#64748b" opacity="0.7"/>
+  </g>
+
+  <!-- Bottom Nav Bar Simulation -->
+  <rect x="0" y="872" width="540" height="88" fill="#081026" opacity="0.95"/>
+  <circle cx="90" cy="916" r="14" fill="#64748b" opacity="0.5"/>
+  <circle cx="270" cy="916" r="18" fill="#f43f5e"/>
+  <circle cx="450" cy="916" r="14" fill="#64748b" opacity="0.5"/>
+</svg>

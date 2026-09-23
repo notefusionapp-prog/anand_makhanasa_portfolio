@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* SRIDIX LIGHT THEME (DEFAULT - sridix.com) */
+  --bg-main: #fbfdff;
+  --bg-secondary: #f0f6ff;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f5f9ff;
+  --text-primary: #0B1B3D;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-main: #e2ecff;
+  --border-subtle: #f0f6ff;
+  --primary-accent: #0d6efd;
+  --primary-accent-hover: #0b5ed7;
+  --primary-accent-light: #f0f6ff;
+  --primary-accent-border: #bfdbfe;
+  --accent-cyan: #0284c7;
+  --accent-cyan-light: #f0f9ff;
+  --shadow-card: 0 4px 20px 0 rgba(11, 27, 61, 0.04), 0 1px 3px 0 rgba(11, 27, 61, 0.02);
+  --shadow-hover: 0 15px 35px -5px rgba(13, 110, 253, 0.15), 0 8px 10px -6px rgba(13, 110, 253, 0.08);
+}
+
+.dark {
+  /* SRIDIX ENTERPRISE DARK MODE */
+  --bg-main: #070d1e;
+  --bg-secondary: #0a1329;
+  --bg-card: #0f1f42;
+  --bg-card-subtle: #0b1733;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-main: #1e2f5b;
+  --border-subtle: #132247;
+  --primary-accent: #2b85ff;
+  --primary-accent-hover: #1a73e8;
+  --primary-accent-light: rgba(43, 133, 255, 0.12);
+  --primary-accent-border: rgba(43, 133, 255, 0.3);
+  --accent-cyan: #38bdf8;
+  --accent-cyan-light: rgba(56, 189, 248, 0.12);
+  --shadow-card: 0 8px 24px -2px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 18px 40px -4px rgba(13, 110, 253, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Accessible reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar matching active theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Print styling for resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  header, nav, footer, .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

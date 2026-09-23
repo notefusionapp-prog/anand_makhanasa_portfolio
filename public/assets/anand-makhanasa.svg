@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500">
+  <defs>
+    <linearGradient id="skySuit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8cb4d6" />
+      <stop offset="50%" stop-color="#79a3c7" />
+      <stop offset="100%" stop-color="#638ea2" />
+    </linearGradient>
+    <linearGradient id="suitShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a83a1" />
+      <stop offset="100%" stop-color="#79a3c7" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c58f6b" />
+      <stop offset="100%" stop-color="#b07853" />
+    </linearGradient>
+    <linearGradient id="foliageBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18341b" />
+      <stop offset="50%" stop-color="#224727" />
+      <stop offset="100%" stop-color="#162d1a" />
+    </linearGradient>
+    <radialGradient id="leafHighlight" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#5ca058" />
+      <stop offset="60%" stop-color="#326b34" />
+      <stop offset="100%" stop-color="#1a3d1d" />
+    </radialGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Deep Lush Green Foliage Background -->
+  <rect width="1000" height="1500" fill="url(#foliageBg)" />
+
+  <!-- Dense Leaf Clusters in Background -->
+  <g opacity="0.85">
+    <!-- Layer 1: Dark background leaves -->
+    <path d="M80,120 Q120,40 180,90 Q220,160 140,200 Q80,180 80,120 Z" fill="#1e4423" />
+    <path d="M240,80 Q320,20 380,80 Q420,160 320,190 Q240,160 240,80 Z" fill="#27542d" />
+    <path d="M580,70 Q660,10 740,70 Q790,150 710,190 Q620,160 580,70 Z" fill="#244f29" />
+    <path d="M820,100 Q890,30 960,90 Q990,170 910,210 Q830,180 820,100 Z" fill="#1c4021" />
+    
+    <path d="M30,320 Q90,240 160,280 Q210,360 130,410 Q40,380 30,320 Z" fill="#2e5e34" />
+    <path d="M850,300 Q920,230 980,290 Q1010,380 930,420 Q860,380 850,300 Z" fill="#2b5731" />
+    <path d="M40,550 Q110,480 180,520 Q220,600 140,650 Q50,620 40,550 Z" fill="#26522c" />
+    <path d="M840,540 Q910,470 970,530 Q1000,620 920,660 Q850,620 840,540 Z" fill="#234a28" />
+    <path d="M50,800 Q120,730 190,780 Q220,860 140,910 Q60,880 50,800 Z" fill="#1f4424" />
+    <path d="M830,790 Q900,720 960,780 Q990,870 910,910 Q840,870 830,790 Z" fill="#224726" />
+
+    <!-- Layer 2: Medium highlighted leaves -->
+    <path d="M150,150 Q200,90 260,130 Q300,200 230,240 Q160,210 150,150 Z" fill="url(#leafHighlight)" />
+    <path d="M420,110 Q490,50 560,100 Q600,180 520,220 Q440,190 420,110 Z" fill="url(#leafHighlight)" />
+    <path d="M700,130 Q760,70 830,120 Q870,200 790,240 Q720,210 700,130 Z" fill="url(#leafHighlight)" />
+    <path d="M80,440 Q140,370 210,410 Q250,490 170,530 Q90,500 80,440 Z" fill="url(#leafHighlight)" />
+    <path d="M780,430 Q850,360 920,410 Q960,490 880,530 Q800,500 780,430 Z" fill="url(#leafHighlight)" />
+    <path d="M90,680 Q160,610 230,660 Q260,740 180,780 Q100,750 90,680 Z" fill="url(#leafHighlight)" />
+    <path d="M760,670 Q830,600 900,650 Q940,730 860,780 Q780,740 760,670 Z" fill="url(#leafHighlight)" />
+  </g>
+
+  <!-- Anand Makhanasa Portrait Silhouette & Detailed Form -->
+  <g filter="url(#softShadow)">
+    
+    <!-- Trousers (Matching Sky-Blue Suit Pants) -->
+    <path d="M310,1130 L380,1500 L620,1500 L690,1130 Z" fill="#6d97bc" />
+    <path d="M485,1180 L485,1500 L515,1500 L515,1180 Z" fill="#587f9f" opacity="0.4" />
+    
+    <!-- Waist & Belt -->
+    <rect x="350" y="1105" width="300" height="35" rx="4" fill="#1a1a1a" />
+    <!-- Polished Gold Belt Buckle -->
+    <rect x="470" y="1100" width="60" height="44" rx="6" fill="#d4af37" stroke="#b5902a" stroke-width="3" />
+    <rect x="482" y="1108" width="36" height="28" rx="3" fill="#111111" />
+    <rect x="496" y="1104" width="8" height="36" fill="#d4af37" />
+
+    <!-- White Dress Shirt (Center Chest) -->
+    <path d="M420,530 L580,530 L610,1110 L390,1110 Z" fill="#f8fafc" />
+    <!-- Shirt Placket & Buttons -->
+    <line x1="500" y1="540" x2="500" y2="1110" stroke="#e2e8f0" stroke-width="4" />
+    <circle cx="500" cy="640" r="5" fill="#cbd5e1" />
+    <circle cx="500" cy="740" r="5" fill="#cbd5e1" />
+    <circle cx="500" cy="840" r="5" fill="#cbd5e1" />
+    <circle cx="500" cy="940" r="5" fill="#cbd5e1" />
+    <circle cx="500" cy="1040" r="5" fill="#cbd5e1" />
+
+    <!-- White Collar -->
+    <polygon points="500,560 440,510 470,480 500,530" fill="#ffffff" />
+    <polygon points="500,560 560,510 530,480 500,530" fill="#ffffff" />
+    <polygon points="440,510 500,560 560,510 500,575" fill="#e2e8f0" opacity="0.5" />
+
+    <!-- Sky-Blue Tailored Suit Jacket (Blazer) -->
+    <!-- Left Shoulder & Torso -->
+    <path d="M390,530 L220,620 L130,940 L260,1360 L380,1260 L450,1120 L425,980 L445,670 Z" fill="url(#skySuit)" />
+    <!-- Right Shoulder & Torso -->
+    <path d="M610,530 L780,620 L870,940 L740,1360 L620,1260 L550,1120 L575,980 L555,670 Z" fill="url(#skySuit)" />
+
+    <!-- Jacket Lapels (Crisp tailored edges) -->
+    <!-- Left Lapel -->
+    <polygon points="410,530 330,690 445,990 425,990 320,680 400,530" fill="#6f99be" />
+    <!-- Right Lapel -->
+    <polygon points="590,530 670,690 555,990 575,990 680,680 600,530" fill="#648ea9" />
+
+    <!-- Suit Button (Single center fastening) -->
+    <circle cx="435" cy="990" r="10" fill="#4d738f" stroke="#8cb4d6" stroke-width="2" />
+
+    <!-- Hands resting at waist / thumbs near belt -->
+    <!-- Left Hand & Wrist (viewer's left) -->
+    <path d="M290,1080 Q320,1040 370,1070 Q410,1100 440,1160 Q380,1190 330,1160 Q290,1120 290,1080 Z" fill="url(#skin)" />
+    <!-- Left Fingers tucked -->
+    <path d="M370,1090 Q400,1110 430,1150" stroke="#9e6743" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M350,1110 Q380,1130 410,1170" stroke="#9e6743" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Right Hand & Wrist (viewer's right) with Gold Watch -->
+    <path d="M710,1080 Q680,1040 630,1070 Q590,1100 560,1160 Q620,1190 670,1160 Q710,1120 710,1080 Z" fill="url(#skin)" />
+    <!-- Gold Wrist Watch on Right Wrist -->
+    <rect x="690" y="1090" width="38" height="16" rx="4" fill="#d4af37" stroke="#b5902a" stroke-width="2" transform="rotate(35 700 1100)" />
+    <circle cx="714" cy="1108" r="12" fill="#1a1a1a" stroke="#d4af37" stroke-width="3" />
+    <circle cx="714" cy="1108" r="2" fill="#ffffff" />
+    <!-- Right Fingers tucked -->
+    <path d="M630,1090 Q600,1110 570,1150" stroke="#9e6743" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Neck -->
+    <path d="M450,470 L550,470 L550,540 L450,540 Z" fill="url(#skin)" />
+    <path d="M450,490 Q500,530 550,490 L550,530 L450,530 Z" fill="#9e6743" opacity="0.35" />
+
+    <!-- Face & Head -->
+    <ellipse cx="500" cy="370" rx="115" ry="145" fill="url(#skin)" />
+
+    <!-- Ears -->
+    <ellipse cx="380" cy="380" rx="18" ry="32" fill="url(#skin)" />
+    <ellipse cx="620" cy="380" rx="18" ry="32" fill="url(#skin)" />
+
+    <!-- Hair (Neat black stylish haircut) -->
+    <path d="M385,340 C380,240 440,190 500,190 C560,190 620,240 615,340 C600,260 550,225 500,225 C450,225 400,260 385,340 Z" fill="#1c1a17" />
+    <path d="M380,310 Q400,220 500,210 Q600,220 620,310 Q580,240 500,230 Q420,240 380,310 Z" fill="#111111" />
+
+    <!-- Eyebrows -->
+    <path d="M425,335 Q455,320 480,332" stroke="#1c1a17" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M575,335 Q545,320 520,332" stroke="#1c1a17" stroke-width="6" stroke-linecap="round" fill="none" />
+
+    <!-- Modern Dark Glasses Frames -->
+    <!-- Left Lens Rim -->
+    <rect x="415" y="345" width="70" height="52" rx="14" fill="rgba(255,255,255,0.12)" stroke="#1f242e" stroke-width="6" />
+    <!-- Right Lens Rim -->
+    <rect x="515" y="345" width="70" height="52" rx="14" fill="rgba(255,255,255,0.12)" stroke="#1f242e" stroke-width="6" />
+    <!-- Glasses Bridge -->
+    <path d="M485,360 Q500,355 515,360" stroke="#1f242e" stroke-width="6" fill="none" />
+    <!-- Temples -->
+    <line x1="415" y1="360" x2="382" y2="365" stroke="#1f242e" stroke-width="5" />
+    <line x1="585" y1="360" x2="618" y2="365" stroke="#1f242e" stroke-width="5" />
+    <!-- Lens Glare Reflection -->
+    <line x1="430" y1="355" x2="455" y2="355" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round" />
+    <line x1="530" y1="355" x2="555" y2="355" stroke="rgba(255,255,255,0.6)" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Eyes Behind Lenses -->
+    <ellipse cx="450" cy="370" rx="12" ry="8" fill="#ffffff" />
+    <circle cx="450" cy="370" r="6" fill="#22160d" />
+    <circle cx="452" cy="368" r="2" fill="#ffffff" />
+
+    <ellipse cx="550" cy="370" rx="12" ry="8" fill="#ffffff" />
+    <circle cx="550" cy="370" r="6" fill="#22160d" />
+    <circle cx="552" cy="368" r="2" fill="#ffffff" />
+
+    <!-- Nose -->
+    <path d="M500,365 L500,410 Q500,422 493,422 Q486,422 488,416" stroke="#9e6743" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    <ellipse cx="510" cy="420" rx="5" ry="3" fill="#9e6743" opacity="0.6" />
+
+    <!-- Mustache & Beard (Neatly groomed trimmed beard) -->
+    <!-- Mustache -->
+    <path d="M465,438 Q500,446 535,438 Q500,452 465,438 Z" fill="#1e1b18" />
+    
+    <!-- Warm Smiling Lips -->
+    <path d="M470,450 Q500,466 530,450" stroke="#964f3d" stroke-width="4" stroke-linecap="round" fill="none" />
+    <path d="M478,452 Q500,462 522,452" fill="#ffffff" />
+
+    <!-- Goatee / Chin Beard & Jawline -->
+    <path d="M475,470 Q500,490 525,470 Q500,505 475,470 Z" fill="#1e1b18" />
+    <!-- Jawline Stubble Beard Shading -->
+    <path d="M395,390 Q405,480 500,505 Q595,480 605,390 Q600,490 500,515 Q400,490 395,390 Z" fill="#1c1916" opacity="0.85" />
+
+  </g>
+</svg>
