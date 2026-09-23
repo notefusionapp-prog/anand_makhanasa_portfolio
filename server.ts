@@ -69,6 +69,12 @@ async function startServer() {
     res.sendFile(path.resolve(__dirname, 'public', 'sitemap.xml'));
   });
 
+  // Google Search Console HTML verification file
+  app.get('/google1105b5e7e4e70e73.html', (_req, res) => {
+    res.type('text/html');
+    res.sendFile(path.resolve(__dirname, 'public', 'google1105b5e7e4e70e73.html'));
+  });
+
   // Serve public directory assets directly (favicons, og-image, sitemap, screenshots)
   app.use(express.static(path.resolve(__dirname, 'public')));
 

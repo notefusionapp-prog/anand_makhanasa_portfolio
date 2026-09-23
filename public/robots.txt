@@ -13,6 +13,7 @@ Allow: /favicon*
 Allow: /apple-touch-icon.png
 Allow: /profile.webp
 Allow: /og-image.png
+Allow: /google1105b5e7e4e70e73.html
 
 # Sitemaps
 Sitemap: https://anandmakhanasa.com/sitemap.xml
