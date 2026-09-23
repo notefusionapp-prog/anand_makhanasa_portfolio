@@ -265,7 +265,7 @@ export const PublishedAppsSection: React.FC = () => {
             to="/projects"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#0B1B3D] border border-blue-200 dark:border-blue-900 text-xs sm:text-sm font-bold text-[#0B1B3D] dark:text-white hover:border-[#0d6efd] shadow-sm hover:shadow-md transition-all group"
           >
-            <span>Explore All 8+ Apps in Dedicated Software Directory</span>
+            <span>Explore All 8+ Apps, Flutter Web Admin Panels &amp; Websites</span>
             <ArrowRight className="w-4 h-4 text-[#0d6efd] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

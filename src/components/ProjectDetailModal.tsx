@@ -126,67 +126,127 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="flex-1 overflow-y-auto p-6 sm:p-8 custom-scrollbar">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
               
-              {/* Left Column: Large Smartphone Mockup with Real App Screenshot */}
+              {/* Left Column: Device Mockup (Browser for Web, Phone Frame for Mobile) */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <div 
-                  style={{ aspectRatio: `${aspectRatio}` }}
-                  className="relative w-[245px] sm:w-[280px] rounded-[32px] p-2.5 bg-slate-900 shadow-2xl border-[4px] border-slate-700/80 ring-1 ring-white/10 group select-none"
-                >
-                  {/* Glass Glare */}
-                  <div className="absolute inset-0 rounded-[28px] pointer-events-none border border-white/10 bg-gradient-to-tr from-transparent via-white/5 to-transparent" />
+                {project.deviceType === 'browser' ? (
+                  <div className="relative w-full max-w-[380px] rounded-2xl bg-slate-900 shadow-2xl border border-slate-700/80 ring-1 ring-white/10 group select-none overflow-hidden">
+                    {/* Browser Chrome Header */}
+                    <div className="bg-[#0b1329] px-3.5 py-2 flex items-center justify-between border-b border-slate-800">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                      </div>
+                      <span className="text-[10.5px] font-mono text-slate-400 truncate max-w-[200px]">
+                        {project.liveUrl ? project.liveUrl.replace('https://', '') : project.name}
+                      </span>
+                      <div className="w-8" />
+                    </div>
 
-                  {/* Sleek Top Speaker & Camera in Bezel (Outside active screen area - prevents cutting top text) */}
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30 pointer-events-none">
-                    <div className="w-1.5 h-1.5 rounded-full bg-slate-950 border border-slate-800" />
-                    <div className="w-7 h-1 bg-slate-800/90 rounded-full" />
-                  </div>
-
-                  {/* Inner Real Screenshot Container */}
-                  <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-black flex items-center justify-center">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeScreenIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="w-full h-full flex items-center justify-center cursor-zoom-in"
-                        onClick={() => setIsZoomed(true)}
-                      >
-                        <OptimizedProjectImage
-                          src={currentScreen}
-                          alt={`${project.name} screen ${activeScreenIndex + 1}`}
-                          loading="eager"
-                          decoding="async"
-                          fetchPriority="high"
-                          objectFit="contain"
-                          className="w-full h-full"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Arrows inside frame */}
-                    {totalScreens > 1 && (
-                      <>
-                        <button
-                          onClick={handlePrev}
-                          className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
+                    {/* Screenshot Container */}
+                    <div className="relative aspect-[16/10] bg-black flex items-center justify-center p-1">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeScreenIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="w-full h-full flex items-center justify-center cursor-zoom-in"
+                          onClick={() => setIsZoomed(true)}
                         >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={handleNext}
-                          className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </>
-                    )}
+                          <OptimizedProjectImage
+                            src={currentScreen}
+                            alt={`${project.name} screen ${activeScreenIndex + 1}`}
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            objectFit="contain"
+                            className="w-full h-full"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
 
-                    {/* Home bar */}
-                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-white/35 rounded-full z-20 pointer-events-none" />
+                      {/* Navigation Arrows inside frame */}
+                      {totalScreens > 1 && (
+                        <>
+                          <button
+                            onClick={handlePrev}
+                            className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={handleNext}
+                            className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div 
+                    style={{ aspectRatio: `${aspectRatio}` }}
+                    className="relative w-[245px] sm:w-[280px] rounded-[32px] p-2.5 bg-slate-900 shadow-2xl border-[4px] border-slate-700/80 ring-1 ring-white/10 group select-none"
+                  >
+                    {/* Glass Glare */}
+                    <div className="absolute inset-0 rounded-[28px] pointer-events-none border border-white/10 bg-gradient-to-tr from-transparent via-white/5 to-transparent" />
+
+                    {/* Sleek Top Speaker & Camera in Bezel (Outside active screen area - prevents cutting top text) */}
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30 pointer-events-none">
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-950 border border-slate-800" />
+                      <div className="w-7 h-1 bg-slate-800/90 rounded-full" />
+                    </div>
+
+                    {/* Inner Real Screenshot Container */}
+                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-black flex items-center justify-center">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeScreenIndex}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="w-full h-full flex items-center justify-center cursor-zoom-in"
+                          onClick={() => setIsZoomed(true)}
+                        >
+                          <OptimizedProjectImage
+                            src={currentScreen}
+                            alt={`${project.name} screen ${activeScreenIndex + 1}`}
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            objectFit="contain"
+                            className="w-full h-full"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+
+                      {/* Navigation Arrows inside frame */}
+                      {totalScreens > 1 && (
+                        <>
+                          <button
+                            onClick={handlePrev}
+                            className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={handleNext}
+                            className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center backdrop-blur-md opacity-0 sm:group-hover:opacity-100 transition-all z-20 cursor-pointer"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </>
+                      )}
+
+                      {/* Home bar */}
+                      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-white/35 rounded-full z-20 pointer-events-none" />
+                    </div>
+                  </div>
+                )}
 
                 {/* Screenshot Thumbnails Strip */}
                 <div className="mt-4 flex items-center gap-2">

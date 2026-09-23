@@ -153,19 +153,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
                   <div className="text-xl font-black text-[#0d6efd] dark:text-blue-400">2.5+ Yrs</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Professional Exp</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Years Experience</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
-                  <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">8+ Apps</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Google Play Store</div>
+                  <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">8+</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Published Store Apps</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
-                  <div className="text-xl font-black text-indigo-600 dark:text-indigo-400">Android &amp; iOS</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Platforms Supported</div>
+                  <div className="text-xl font-black text-blue-600 dark:text-blue-400">1</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Flutter Web</div>
                 </div>
                 <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#070d1e]/60 border border-slate-200/80 dark:border-slate-800">
-                  <div className="text-xl font-black text-amber-600 dark:text-amber-400">Clean Arch</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Bloc, Cubit, GetX</div>
+                  <div className="text-xl font-black text-cyan-600 dark:text-cyan-400">2</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Websites</div>
                 </div>
               </div>
 

@@ -198,7 +198,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               variants={itemVariants}
               className="mt-5 text-base sm:text-lg text-[#475569] dark:text-slate-300 font-normal leading-relaxed max-w-xl"
             >
-              Senior Flutter &amp; Mobile Application Developer building high-performance, cross-platform Android &amp; iOS applications with Flutter, Dart, Firebase, REST APIs, and Bloc/Cubit architecture. Proud developer with 8+ published production applications on the Google Play Store.
+              Building production-ready Android, iOS and Flutter Web applications, admin panels and modern websites. Proven track record with 8+ published applications on Google Play Store, scalable Bloc/Cubit architecture, and real-time backend integrations.
             </motion.p>
 
             {/* Verified Credentials Checklist */}
@@ -212,11 +212,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               </div>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#0d6efd] dark:text-blue-400 shrink-0" />
-                <span>Bloc, GetX & Riverpod</span>
+                <span>Flutter Web &amp; Admin Panels</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#0d6efd] dark:text-blue-400 shrink-0" />
-                <span>Real-Time WebSockets & Razorpay</span>
+                <span>SEO &amp; Real-Time APIs</span>
               </div>
             </motion.div>
 
@@ -245,7 +245,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             {/* Quick Metrics */}
             <motion.div 
               variants={itemVariants}
-              className="mt-10 pt-6 border-t border-blue-100/80 dark:border-blue-900/60 grid grid-cols-3 gap-6 w-full max-w-lg"
+              className="mt-10 pt-6 border-t border-blue-100/80 dark:border-blue-900/60 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-xl"
             >
               <div>
                 <div className="font-mono text-2xl font-extrabold text-[#0B1B3D] dark:text-white tracking-tight">2.5+</div>
@@ -256,8 +256,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Published Store Apps</div>
               </div>
               <div>
-                <div className="font-mono text-2xl font-extrabold text-[#0d6efd] dark:text-blue-400 tracking-tight">100%</div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Production Code</div>
+                <div className="font-mono text-2xl font-extrabold text-[#0d6efd] dark:text-blue-400 tracking-tight">1</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Flutter Web</div>
+              </div>
+              <div>
+                <div className="font-mono text-2xl font-extrabold text-[#0284c7] dark:text-cyan-400 tracking-tight">2</div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Websites</div>
               </div>
             </motion.div>
 
@@ -402,13 +406,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-slate-900 dark:text-white">8+ Published Apps</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">8+ Store Apps</span>
                     <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">
                       Live
                     </span>
                   </div>
                   <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                    Google Play Store & App Store
+                    + 1 Flutter Web &amp; 2 Websites
                   </div>
                 </div>
               </motion.div>

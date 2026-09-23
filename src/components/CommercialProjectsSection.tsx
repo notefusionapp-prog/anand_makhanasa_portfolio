@@ -10,6 +10,10 @@ import {
 import { OTHER_PROJECTS, Project } from '../data/portfolioData';
 
 export const CommercialProjectsSection: React.FC = () => {
+  if (!OTHER_PROJECTS || OTHER_PROJECTS.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-24 bg-[#fbfdff] dark:bg-[#070d1e] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

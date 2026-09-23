@@ -4,9 +4,13 @@ export interface Project {
   subtitle: string;
   playStoreUrl?: string;
   appStoreUrl?: string;
+  liveUrl?: string;
   isPublished: boolean;
-  type: 'published' | 'commercial' | 'featured';
+  type: 'published' | 'commercial' | 'featured' | 'web';
   category?: 'productivity' | 'utilities' | 'entertainment' | 'health' | 'lifestyle' | 'education' | 'business';
+  projectType?: 'mobile-app' | 'flutter-web' | 'website' | 'admin-panel';
+  deviceType?: 'mobile' | 'browser';
+  relatedProjectIds?: string[];
   role: string;
   companyConnection?: string;
   platform: string[];
@@ -17,7 +21,7 @@ export interface Project {
   accentColor: string;
   iconUrl?: string;
   screenshots?: string[];
-  previewType?: 'diamond' | 'finance' | 'tech' | 'fitness' | 'astrology' | 'puzzle' | 'scanner' | 'astrologer-partner';
+  previewType?: 'diamond' | 'finance' | 'tech' | 'fitness' | 'astrology' | 'puzzle' | 'scanner' | 'astrologer-partner' | 'admin-panel' | 'website-preview';
 }
 
 export interface ExperienceItem {
@@ -47,8 +51,8 @@ export interface SkillCategory {
 export const PERSONAL_INFO = {
   name: "Anand Makhanasa",
   role: "Senior Flutter & Mobile Application Developer",
-  tagline: "Building polished, scalable and production-ready cross-platform mobile applications for Android & iOS.",
-  summary: "Passionate Senior Flutter & Mobile Application Developer with 2.5+ years of experience in developing high-quality cross-platform mobile applications for Android and iOS using Flutter & Dart. Experienced in building pixel-perfect responsive UIs from Figma designs and integrating REST APIs, Deep Linking, Socket.IO, Firebase, and third-party SDKs. Proficient in Bloc/Cubit, GetX, and Riverpod state management with a strong focus on clean architecture and maintainable code. Successfully deployed and maintained production applications on the Google Play Store, Apple App Store, and TestFlight.",
+  tagline: "Building production-ready Android, iOS and Flutter Web applications, admin panels and modern websites.",
+  summary: "Senior Flutter & Mobile Application Developer with 2.5+ years of experience building production-ready Android, iOS, and Flutter Web applications, admin panels, and modern SEO-optimized websites. Proficient in Bloc/Cubit, GetX, and Riverpod state management, responsive UI development from Figma, REST APIs, Socket.IO, Firebase, and payment gateways. Proven track record of 8+ published applications on Google Play Store and live web deployments.",
   email: "anandmakhanasa1631@gmail.com",
   phone: "+91 9537107504",
   location: "Surat, Gujarat, India",
@@ -57,12 +61,12 @@ export const PERSONAL_INFO = {
   linkedin: "https://www.linkedin.com/in/anand-makhanasa-144b1229a",
   experienceYears: "2.5+",
   profileImage: "https://i.ibb.co/ksdfXGZ5/image.png",
-  platforms: ["Android", "iOS"],
+  platforms: ["Android", "iOS", "Flutter Web"],
   stats: [
     { label: "Years Experience", value: "2.5+" },
-    { label: "Published on Play Store", value: "8+ Apps" },
-    { label: "Platforms Supported", value: "iOS & Android" },
-    { label: "State Management", value: "Bloc & GetX" },
+    { label: "Published Store Apps", value: "8+" },
+    { label: "Flutter Web", value: "1" },
+    { label: "Websites", value: "2" },
   ]
 };
 
@@ -74,6 +78,9 @@ export const PUBLISHED_APPS: Project[] = [
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.app.hiradiary&hl=en_IN",
     isPublished: true,
     type: "published",
+    projectType: "mobile-app",
+    deviceType: "mobile",
+    relatedProjectIds: ["hira-diary-website"],
     category: "productivity",
     role: "Flutter Developer",
     platform: ["Android", "Google Play"],
@@ -110,6 +117,9 @@ export const PUBLISHED_APPS: Project[] = [
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.smart_notefusion.app&hl=en_IN",
     isPublished: true,
     type: "published",
+    projectType: "mobile-app",
+    deviceType: "mobile",
+    relatedProjectIds: ["smart-notefusion-website", "smart-notefusion-admin"],
     category: "productivity",
     role: "Flutter Developer",
     platform: ["Android", "Google Play"],
@@ -369,66 +379,124 @@ export const PUBLISHED_APPS: Project[] = [
   }
 ];
 
-export const OTHER_PROJECTS: Project[] = [
+export const WEB_PROJECTS: Project[] = [
   {
-    id: "astrologer-consultation",
-    name: "Astrologer & Consultation Mobile App",
-    subtitle: "Real-time Astrologer Directory, Live Chat & Video Calling",
-    isPublished: false,
-    type: "commercial",
-    role: "Flutter Developer (Globalia Soft LLP)",
-    platform: ["Android", "iOS"],
-    description: "A live consultation platform connecting users with professional astrologers featuring real-time messaging, video calls, horoscope generation, and instant Razorpay payment checkout.",
+    id: "smart-notefusion-admin",
+    name: "Smart NoteFusion Admin Panel",
+    subtitle: "Cloud Back-Office, User Analytics & Content Moderation Dashboard",
+    liveUrl: "https://smart-notefusion-admin.surge.sh/",
+    isPublished: true,
+    type: "web",
+    projectType: "flutter-web",
+    deviceType: "browser",
+    category: "productivity",
+    role: "Flutter Web Developer",
+    platform: ["Flutter Web", "Surge", "Cloud Console"],
+    description: "An enterprise cloud back-office management console built with Flutter Web for Smart NoteFusion. Features comprehensive user telemetry, sync session monitoring, note & expense category configurations, and role-based access control.",
     keyFeatures: [
-      "Real-time 1-on-1 chat and streaming video consultation integration",
-      "Automated Kundli / horoscope calculation and chart generation",
-      "Astrologer availability listing, slot booking, and per-minute billing",
-      "Razorpay payment gateway integration for wallet recharges and consultations",
-      "Firebase Firestore live data synchronization and user presence"
+      "Real-time analytics dashboard displaying active mobile client nodes and sync metrics",
+      "User account administration with role-based permission gates and session audit logs",
+      "System-wide note template management and multi-category expense configurations",
+      "Adaptive desktop and tablet layouts built with Flutter Web responsive framework",
+      "High-speed data grid views with client-side sorting, pagination, and real-time filtering",
+      "Dark and light admin console visual themes with persistent administrator preferences"
     ],
-    technologies: ["Flutter", "Dart", "Firebase Firestore", "Firebase Auth", "Razorpay", "WebRTC / Video SDK", "REST APIs"],
+    technologies: ["Flutter Web", "Dart", "Firebase Auth", "REST APIs", "Clean Architecture", "Bloc / Cubit", "Responsive UI", "Surge"],
     contribution: [
-      "Contributed to core consultation flows, astrologer discovery, and real-time chat",
-      "Implemented Firebase Auth (OTP & Email) and Firestore live listeners",
-      "Integrated Razorpay SDK for consultation checkout and automated wallet deductions"
+      "Built the entire responsive back-office dashboard using Flutter Web and adaptive widget layouts",
+      "Engineered role-based authentication and secure session management for administrators",
+      "Created telemetry chart visualizations and live sync session activity logs",
+      "Optimized Flutter Web bundle size, canvas rendering, and fast initial paint times"
     ],
-    accentColor: "#eab308",
-    previewType: "astrology",
+    accentColor: "#059669",
+    iconUrl: "/images/projects/smart-notefusion-admin/icon.png",
     screenshots: [
-      "/images/projects/astro-live-chat/screen-01.webp",
-      "/images/projects/astro-live-chat/screen-02.webp"
-    ]
+      "/images/projects/smart-notefusion-admin/screen-01.png",
+      "/images/projects/smart-notefusion-admin/screen-02.png",
+      "/images/projects/smart-notefusion-admin/screen-03.png"
+    ],
+    previewType: "admin-panel",
+    relatedProjectIds: ["smart-notefusion", "smart-notefusion-website"]
   },
   {
-    id: "interactive-learning-app",
-    name: "E-Learning & Interactive Quiz App",
-    subtitle: "Student Engagement, Video Lessons & Timed Assessments",
-    isPublished: false,
-    type: "commercial",
-    role: "Flutter Developer (Globalia Soft LLP)",
-    platform: ["Android", "iOS"],
-    description: "An educational mobile application built for student engagement, hosting structured video courses, interactive timed quizzes, instant performance scoring, and push notification announcements.",
+    id: "smart-notefusion-website",
+    name: "Smart NoteFusion Official Website",
+    subtitle: "SEO-Optimized Product Landing Page & Feature Showcase",
+    liveUrl: "https://smartnotefusion-website.netlify.app/",
+    isPublished: true,
+    type: "web",
+    projectType: "website",
+    deviceType: "browser",
+    category: "productivity",
+    role: "Website Developer & SEO Specialist",
+    platform: ["Website Development", "Netlify", "SEO"],
+    description: "The official product showcase and marketing website for Smart NoteFusion. Engineered with high-performance responsive web standards, technical SEO, rich OpenGraph social share cards, Schema.org structured data, and direct Google Play install funnels.",
     keyFeatures: [
-      "Curated video lesson streaming with bookmarking and progress tracking",
-      "Interactive timed quiz engine with instant scorecards and solution reviews",
-      "Push notifications for new study modules and test reminders via FCM",
-      "Offline caching of study materials and question sets",
-      "Role-based student progress dashboards"
+      "High-conversion responsive landing page highlighting features, security vault, and expense splitting",
+      "Complete technical SEO architecture with JSON-LD structured data, meta tags, and OpenGraph cards",
+      "Interactive feature previews, screenshots carousel, and direct Google Play Store install links",
+      "Sub-second First Contentful Paint (FCP) and Lighthouse performance optimization",
+      "Bilingual friendly copy, privacy policy documentation, and user terms pages",
+      "Fully fluid mobile, tablet, and widescreen viewport responsiveness"
     ],
-    technologies: ["Flutter", "Dart", "Firebase Auth", "REST APIs", "Video Player", "FCM", "GetX"],
+    technologies: ["Website Development", "SEO Implementation", "Responsive UI", "Semantic HTML5", "Modern CSS", "Netlify Deployment"],
     contribution: [
-      "Engineered smooth video course playback and quiz assessment state engine",
-      "Handled REST API JSON parsing and offline quiz response caching",
-      "Published internal beta test builds to Google Play Console for QA teams"
+      "Architected and developed the high-converting marketing website from scratch",
+      "Engineered comprehensive SEO strategy including SoftwareApplication JSON-LD and meta tags",
+      "Optimized responsive asset delivery, SVG graphics, and web fonts for fast page speeds",
+      "Configured automated continuous deployment pipeline on Netlify"
     ],
-    accentColor: "#8b5cf6",
-    previewType: "tech",
+    accentColor: "#10b981",
+    iconUrl: "/images/projects/smart-notefusion-website/logo.png",
     screenshots: [
-      "/images/projects/tech-info-hub/screen-01.webp",
-      "/images/projects/tech-info-hub/screen-02.webp"
-    ]
+      "/images/projects/smart-notefusion-website/screen-01.png",
+      "/images/projects/smart-notefusion-website/screen-02.jpg"
+    ],
+    previewType: "website-preview",
+    relatedProjectIds: ["smart-notefusion", "smart-notefusion-admin"]
+  },
+  {
+    id: "hira-diary-website",
+    name: "Hira Diary Official Website",
+    subtitle: "SEO-Optimized Web Portal for Diamond Workers & Craftsmen",
+    liveUrl: "https://hiradiary.netlify.app/",
+    isPublished: true,
+    type: "web",
+    projectType: "website",
+    deviceType: "browser",
+    category: "productivity",
+    role: "Website Developer & SEO Specialist",
+    platform: ["Website Development", "Netlify", "Local SEO"],
+    description: "Dedicated official web portal and feature portal for the Hira Diary mobile application. Built to assist Surat diamond craftsmen and industry workers with software documentation, tutorials, feature explanations, and Google Search visibility.",
+    keyFeatures: [
+      "Targeted local SEO optimization for Surat and Gujarat diamond industry craftsman queries",
+      "Bilingual Gujarati & English feature explanations and daily ledger calculation walkthroughs",
+      "Direct Google Play Store download callouts and mobile installation guides",
+      "Semantic HTML5 document hierarchy with structured data for fast search indexing",
+      "Lightweight, zero-bloat static architecture ensuring instant loading on mobile network connections",
+      "Contact inquiry and user support information for artisans and factory managers"
+    ],
+    technologies: ["Website Development", "SEO Implementation", "Local SEO", "Responsive UI", "Semantic HTML5", "Netlify Deployment"],
+    contribution: [
+      "Engineered responsive web portal tailored for diamond industry workers with accessible UI",
+      "Implemented search engine optimization strategies for diamond accounting search intent",
+      "Streamlined asset delivery and critical CSS for rapid load times over mobile 4G networks",
+      "Deployed and configured custom hosting with SSL on Netlify"
+    ],
+    accentColor: "#0284c7",
+    iconUrl: "/images/projects/hira-diary-website/logo.png",
+    screenshots: [
+      "/images/projects/hira-diary-website/screen-01.png",
+      "/images/projects/hira-diary-website/screen-02.png"
+    ],
+    previewType: "website-preview",
+    relatedProjectIds: ["hira-diary"]
   }
 ];
+
+export const OTHER_PROJECTS: Project[] = [];
+
+export const ALL_PROJECTS: Project[] = [...PUBLISHED_APPS, ...WEB_PROJECTS];
 
 export const WORK_EXPERIENCES: ExperienceItem[] = [
   {
@@ -437,25 +505,28 @@ export const WORK_EXPERIENCES: ExperienceItem[] = [
     duration: "April 2026 – Present",
     location: "Surat, Gujarat",
     type: "Full-time",
-    description: "Developing and maintaining production cross-platform mobile applications for Android & iOS with scalable architecture, real-time data sync, and store publishing.",
+    description: "Developing and maintaining production cross-platform mobile applications for Android & iOS, Flutter Web admin consoles, and modern SEO websites with scalable architecture, real-time data sync, and store publishing.",
     responsibilities: [
       "Developed and maintained cross-platform mobile applications using Flutter & Dart for Android and iOS platforms.",
-      "Built pixel-perfect, responsive UI by converting Figma designs into Flutter code across multiple applications.",
+      "Engineered responsive Flutter Web admin consoles and back-office management dashboards with role-based access control.",
+      "Built SEO-optimized marketing web portals and product landing pages with semantic HTML5, fast asset delivery, and Schema.org structured data.",
+      "Built pixel-perfect, responsive UI by converting Figma designs into Flutter code across multiple applications and screen viewports.",
       "Implemented scalable application architecture using Bloc/Cubit, GetX, and Riverpod state management.",
       "Integrated REST APIs, Deep Linking, and Socket.IO for real-time data synchronization, live assessment updates, and slot management.",
       "Developed features including appointment booking, event management, assessment workflows, authentication, and user profile management.",
       "Collaborated with backend developers to integrate APIs, handle JSON parsing, and ensure seamless application functionality.",
-      "Successfully deployed Android applications on the Google Play Store and iOS applications on the Apple App Store and TestFlight.",
-      "Optimized application performance, resolved production issues, and improved UI responsiveness across different screen sizes.",
+      "Successfully deployed Android applications on the Google Play Store, iOS applications on Apple App Store / TestFlight, and web projects on Netlify & Surge.",
+      "Optimized application performance, resolved production issues, and improved UI responsiveness across different mobile and desktop screen sizes.",
       "Worked closely with UI/UX designers to deliver high-quality user experiences and pixel-perfect interfaces.",
       "Used Git for version control and actively participated in Agile development, sprint planning, code reviews, and daily stand-up meetings."
     ],
     technologies: [
-      "Flutter", "Dart", "Bloc/Cubit", "GetX", "Riverpod", "Socket.IO", "RESTful APIs", "Deep Linking", "Google Play Console", "App Store Connect", "TestFlight", "Git"
+      "Flutter", "Dart", "Flutter Web", "Bloc/Cubit", "GetX", "Riverpod", "Socket.IO", "RESTful APIs", "Deep Linking", "Google Play Console", "App Store Connect", "TestFlight", "Website Development", "SEO Implementation", "Git"
     ],
     highlights: [
-      "Successfully deployed production apps to Google Play Store and Apple App Store",
-      "Engineered real-time socket connections for live slot management and assessments",
+      "Successfully deployed 8+ production apps to Google Play Store, Apple App Store, and live Web platforms",
+      "Engineered real-time socket connections for live slot management, chat, and assessments",
+      "Built responsive Flutter Web admin panels and high-ranking SEO web portals for production mobile apps",
       "Transformed complex Figma designs into responsive 60fps Flutter widgets"
     ]
   },
@@ -524,10 +595,23 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "Flutter Framework", featured: true, description: "2.5+ yrs building custom widgets & responsive layouts" },
       { name: "Dart", featured: true, description: "Object-oriented, strong typing, async streams & isolates" },
+      { name: "Flutter Web", featured: true, description: "Production web applications, responsive dashboards & admin consoles" },
       { name: "C / C++", description: "Foundational programming & low-level algorithms" },
       { name: "Android (Java/Kotlin fundamentals)", description: "Platform channel awareness & manifest setup" },
       { name: "iOS (Swift/Obj-C fundamentals)", description: "Xcode signing, Pods, plist configurations" },
-      { name: "Cross-Platform UI", featured: true, description: "Single codebase for iOS and Android" }
+      { name: "Cross-Platform UI", featured: true, description: "Single codebase for iOS, Android and Web" }
+    ]
+  },
+  {
+    title: "Web, Admin & SEO Engineering",
+    iconName: "Globe",
+    description: "Production web applications, responsive back-office admin dashboards, and technical SEO",
+    skills: [
+      { name: "Flutter Web Development", featured: true, description: "Responsive web dashboards, canvas rendering & adaptive layouts" },
+      { name: "Website Development", featured: true, description: "Semantic HTML5, modern CSS, and high-performance web pages" },
+      { name: "Technical SEO Implementation", featured: true, description: "Structured data (Schema.org JSON-LD), OpenGraph & search indexing" },
+      { name: "Responsive Web UI", featured: true, description: "Fluid cross-device viewports from mobile to widescreen monitors" },
+      { name: "Netlify & Surge Deployment", featured: true, description: "Continuous integration, edge CDN delivery & custom domains" }
     ]
   },
   {

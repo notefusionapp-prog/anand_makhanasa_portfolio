@@ -4,7 +4,6 @@ import { AboutSection } from '../components/AboutSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { ExperienceSection } from '../components/ExperienceSection';
 import { PublishedAppsSection } from '../components/PublishedAppsSection';
-import { CommercialProjectsSection } from '../components/CommercialProjectsSection';
 import { ExpertiseSection } from '../components/ExpertiseSection';
 import { WorkflowSection } from '../components/WorkflowSection';
 import { ContactSection } from '../components/ContactSection';
@@ -39,10 +38,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenResume }) => {
         {/* 5. Published Applications (8+ Google Play Store Apps) */}
         <PublishedAppsSection />
 
-        {/* 6. Commercial & Enterprise Projects */}
-        <CommercialProjectsSection />
-
-        {/* 7. Development Expertise */}
+        {/* 6. Development Expertise */}
         <ExpertiseSection />
 
         {/* 8. Development Workflow */}
