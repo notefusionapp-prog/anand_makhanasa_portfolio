@@ -148,9 +148,9 @@ English, Hindi, Gujarati
               <div className="border-b border-blue-100 dark:border-blue-900/60 pb-6 print:border-slate-300">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
-                    <h1 className="text-2xl sm:text-3xl font-black text-[#0B1B3D] dark:text-white tracking-tight uppercase print:text-black">
+                    <h2 className="text-2xl sm:text-3xl font-black text-[#0B1B3D] dark:text-white tracking-tight uppercase print:text-black">
                       Anand Makhanasa
-                    </h1>
+                    </h2>
                     <p className="text-[#0d6efd] dark:text-blue-400 font-bold text-base sm:text-lg mt-0.5 tracking-wide print:text-blue-700">
                       FLUTTER DEVELOPER
                     </p>

@@ -1,0 +1,23 @@
+
+<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 100 100'>
+  <defs>
+    <linearGradient id='bgGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#0B1B3D' />
+      <stop offset='50%' stop-color='#0D47A1' />
+      <stop offset='100%' stop-color='#0d6efd' />
+    </linearGradient>
+    <linearGradient id='textGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#ffffff' />
+      <stop offset='100%' stop-color='#e0f2fe' />
+    </linearGradient>
+    <filter id='dropShadow' x='-10%' y='-10%' width='120%' height='120%'>
+      <feDropShadow dx='0' dy='2' stdDeviation='2' flood-color='#000000' flood-opacity='0.4'/>
+    </filter>
+  </defs>
+  <rect width='100' height='100' rx='22' fill='url(#bgGrad)' />
+  <rect x='1.5' y='1.5' width='97' height='97' rx='20.5' fill='none' stroke='rgba(255,255,255,0.22)' stroke-width='3'/>
+  <!-- AM Monogram text with custom kerning -->
+  <text x='50' y='64' font-family='system-ui, -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", sans-serif' font-size='46' font-weight='800' fill='url(#textGrad)' text-anchor='middle' letter-spacing='-1.5' filter='url(#dropShadow)'>AM</text>
+  <!-- Subtle tech dot -->
+  <circle cx='80' cy='32' r='4' fill='#38bdf8' />
+</svg>

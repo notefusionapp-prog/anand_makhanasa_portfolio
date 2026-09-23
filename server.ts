@@ -58,6 +58,20 @@ async function startServer() {
     });
   });
 
+  // SEO: Direct Robots.txt and Sitemap.xml serving with proper MIME types
+  app.get('/robots.txt', (_req, res) => {
+    res.type('text/plain');
+    res.sendFile(path.resolve(__dirname, 'public', 'robots.txt'));
+  });
+
+  app.get('/sitemap.xml', (_req, res) => {
+    res.type('application/xml');
+    res.sendFile(path.resolve(__dirname, 'public', 'sitemap.xml'));
+  });
+
+  // Serve public directory assets directly (favicons, og-image, sitemap, screenshots)
+  app.use(express.static(path.resolve(__dirname, 'public')));
+
   // Mount Vite dev server middlewares in dev or static files in production
   if (!isProd) {
     const { createServer: createViteServer } = await import('vite');

@@ -10,6 +10,7 @@ import {
   Eye,
   CheckCircle2
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PUBLISHED_APPS, Project } from '../data/portfolioData';
 import { ProjectPhoneShowcase } from './ProjectPhoneShowcase';
 import { ProjectDetailModal } from './ProjectDetailModal';
@@ -19,7 +20,6 @@ type FilterCategory = 'all' | 'productivity' | 'lifestyle' | 'utilities-games';
 
 export const PublishedAppsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
-  const [activeAppId, setActiveAppId] = useState<string>(PUBLISHED_APPS[0].id);
   const [selectedDetailProject, setSelectedDetailProject] = useState<Project | null>(null);
 
   // Category filtering
@@ -96,43 +96,6 @@ export const PublishedAppsSection: React.FC = () => {
               );
             })}
           </div>
-
-          {/* Quick-Jump App Icons Strip */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            {filteredApps.map((app) => {
-              const isCurrent = activeAppId === app.id;
-              return (
-                <button
-                  key={app.id}
-                  onClick={() => {
-                    setActiveAppId(app.id);
-                    const el = document.getElementById(`project-${app.id}`);
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all flex items-center gap-2 cursor-pointer ${
-                    isCurrent
-                      ? 'bg-blue-50 dark:bg-blue-950/70 border-blue-300 dark:border-blue-600 text-[#0d6efd] dark:text-blue-300 font-bold shadow-xs'
-                      : 'bg-white dark:bg-[#0f1f42] border-blue-100 dark:border-blue-900/60 text-[#475569] dark:text-slate-300 hover:border-blue-300'
-                  }`}
-                >
-                  {app.iconUrl && (
-                    <OptimizedProjectImage 
-                      src={app.iconUrl} 
-                      alt="" 
-                      width={16}
-                      height={16}
-                      loading="lazy"
-                      decoding="async"
-                      objectFit="cover"
-                      className="w-4 h-4 rounded-full" 
-                      containerClassName="w-4 h-4 rounded-full shrink-0 !bg-transparent"
-                    />
-                  )}
-                  <span>{app.name.split(':')[0].split('–')[0].trim()}</span>
-                </button>
-              );
-            })}
-          </div>
         </motion.div>
 
         {/* Project Cards Stack */}
@@ -140,7 +103,6 @@ export const PublishedAppsSection: React.FC = () => {
           <AnimatePresence mode="popLayout">
             {filteredApps.map((app, index) => {
               const isReversed = index % 2 === 1;
-              const isSelected = activeAppId === app.id;
 
               return (
                 <motion.div 
@@ -151,11 +113,7 @@ export const PublishedAppsSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  className={`p-6 sm:p-8 lg:p-10 rounded-[28px] bg-white dark:bg-[#0B1B3D]/90 border transition-all duration-300 shadow-[0_10px_35px_rgba(11,27,61,0.05)] relative overflow-hidden ${
-                    isSelected 
-                      ? 'border-[#0d6efd] dark:border-blue-500 ring-2 ring-[#0d6efd]/20 shadow-[0_15px_45px_rgba(13,110,253,0.12)]' 
-                      : 'border-blue-100/90 dark:border-blue-900/70 hover:shadow-[0_15px_45px_rgba(11,27,61,0.09)]'
-                  }`}
+                  className="p-6 sm:p-8 lg:p-10 rounded-[28px] bg-white dark:bg-[#0B1B3D]/90 border border-blue-100/90 dark:border-blue-900/70 hover:shadow-[0_15px_45px_rgba(11,27,61,0.09)] transition-all duration-300 shadow-[0_10px_35px_rgba(11,27,61,0.05)] relative overflow-hidden"
                 >
                   {/* Sridix Brand Top Accent Ribbon */}
                   <div 
@@ -265,15 +223,15 @@ export const PublishedAppsSection: React.FC = () => {
 
                       {/* Card Action Buttons: "View Project" Case Study & "Google Play" Store */}
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        {/* View Project Case Study Button */}
-                        <button
-                          onClick={() => setSelectedDetailProject(app)}
+                        {/* Crawlable Deep Project Case Study Link */}
+                        <Link
+                          to={`/projects/${app.id}`}
                           className="px-5 py-2.5 rounded-full bg-[#0d6efd] hover:bg-[#0b5ed7] text-white text-xs sm:text-sm font-bold flex items-center gap-2 shadow-[0_4px_16px_rgba(13,110,253,0.3)] hover:shadow-[0_6px_20px_rgba(13,110,253,0.4)] transition-all cursor-pointer"
                         >
                           <Eye className="w-4 h-4" />
-                          <span>View Project Case Study</span>
+                          <span>Detailed Case Study</span>
                           <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
-                        </button>
+                        </Link>
 
                         {/* Google Play Store Direct Link */}
                         {app.playStoreUrl && (
@@ -299,6 +257,17 @@ export const PublishedAppsSection: React.FC = () => {
               );
             })}
           </AnimatePresence>
+        </div>
+
+        {/* View Full 8 Apps Directory Bottom Callout */}
+        <div className="mt-14 text-center">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#0B1B3D] border border-blue-200 dark:border-blue-900 text-xs sm:text-sm font-bold text-[#0B1B3D] dark:text-white hover:border-[#0d6efd] shadow-sm hover:shadow-md transition-all group"
+          >
+            <span>Explore All 8 Apps in Dedicated Software Directory</span>
+            <ArrowRight className="w-4 h-4 text-[#0d6efd] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
       </div>

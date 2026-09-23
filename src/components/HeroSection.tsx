@@ -187,7 +187,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0B1B3D] dark:text-white tracking-tight leading-[1.08]"
             >
-              Anand Makhanasa
+              Anand Makhanasa <span className="text-[#0d6efd] dark:text-blue-400 font-bold">—</span>
               <span className="block mt-3 text-xl sm:text-2xl lg:text-3xl font-bold text-[#0d6efd] dark:text-blue-400 tracking-tight">
                 Senior Flutter &amp; Mobile Application Developer
               </span>

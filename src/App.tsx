@@ -1,22 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ExperienceSection } from './components/ExperienceSection';
-import { PublishedAppsSection } from './components/PublishedAppsSection';
-import { CommercialProjectsSection } from './components/CommercialProjectsSection';
-import { ExpertiseSection } from './components/ExpertiseSection';
-import { WorkflowSection } from './components/WorkflowSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 import { PageLoader } from './components/PageLoader';
 import { SpotlightCursor } from './components/SpotlightCursor';
 import { ProjectEnquiryModal } from './components/ProjectEnquiryModal';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
+import { ScrollToTop } from './components/ScrollToTop';
+
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -24,18 +22,16 @@ export default function App() {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const enquiryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Auto Project Enquiry Popup: Appears every 15s, restarts on close/dismiss
+  // Auto Project Enquiry Popup: Appears after 18s of interaction
   useEffect(() => {
-    // Only schedule if modal is not open
     if (!isEnquiryOpen) {
       if (enquiryTimerRef.current) {
         clearTimeout(enquiryTimerRef.current);
       }
       enquiryTimerRef.current = setTimeout(() => {
         setIsEnquiryOpen(true);
-      }, 15000);
+      }, 18000);
     } else {
-      // Clear pending timer while modal is currently open to prevent duplicates
       if (enquiryTimerRef.current) {
         clearTimeout(enquiryTimerRef.current);
         enquiryTimerRef.current = null;
@@ -51,73 +47,64 @@ export default function App() {
 
   const handleCloseEnquiry = () => {
     setIsEnquiryOpen(false);
-    // Setting state to false triggers the useEffect above to restart the 15-second timer cleanly
   };
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 flex flex-col font-sans selection:bg-[#0d6efd]/20 selection:text-[#0d6efd] relative transition-colors duration-300">
-        
-        {/* Minimal Premium Page Entrance Loader */}
-        <AnimatePresence>
-          {isLoading && <PageLoader onComplete={() => setIsLoading(false)} />}
-        </AnimatePresence>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 flex flex-col font-sans selection:bg-[#0d6efd]/20 selection:text-[#0d6efd] relative transition-colors duration-300">
+          
+          {/* Minimal Premium Entrance Loader */}
+          <AnimatePresence>
+            {isLoading && <PageLoader onComplete={() => setIsLoading(false)} />}
+          </AnimatePresence>
 
-        {/* Subtle Desktop Ambient Spotlight Cursor */}
-        <SpotlightCursor />
+          {/* Subtle Ambient Cursor */}
+          <SpotlightCursor />
 
-        {/* Navigation Bar with Theme Toggle */}
-        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+          {/* Persistent Navbar */}
+          <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-        {/* Main Content Sections */}
-        <main className="flex-1">
-          {/* 1. Hero Section */}
-          <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
+          {/* Crawlable Route Outlets */}
+          <Routes>
+            {/* Primary Homepage with single H1 */}
+            <Route path="/" element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} />
 
-          {/* 2. About Me */}
-          <AboutSection onOpenResume={() => setIsResumeOpen(true)} />
+            {/* Dedicated Personal Profile Pages */}
+            <Route path="/about" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
+            <Route path="/anand-makhanasa" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
 
-          {/* 3. Skills / Tech Stack */}
-          <SkillsSection />
+            {/* Published Apps & Projects Directory */}
+            <Route path="/projects" element={<ProjectsPage />} />
 
-          {/* 4. Professional Experience */}
-          <ExperienceSection />
+            {/* Individual Project & SoftwareApplication Pages */}
+            <Route path="/projects/:slug" element={<ProjectDetailPage />} />
 
-          {/* 5. Published Applications (Google Play Store & App Store) */}
-          <PublishedAppsSection />
+            {/* Fallback to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
 
-          {/* 6. Commercial & Client Projects */}
-          <CommercialProjectsSection />
+          {/* Persistent Footer */}
+          <Footer onOpenResume={() => setIsResumeOpen(true)} />
 
-          {/* 7. Development Expertise Capabilities */}
-          <ExpertiseSection />
+          {/* Resume Modal */}
+          <ResumeModal 
+            isOpen={isResumeOpen} 
+            onClose={() => setIsResumeOpen(false)} 
+          />
 
-          {/* 8. Development Workflow */}
-          <WorkflowSection />
+          {/* Project Enquiry Modal */}
+          <ProjectEnquiryModal 
+            isOpen={isEnquiryOpen}
+            onClose={handleCloseEnquiry}
+          />
 
-          {/* 9. Contact & Inquiries */}
-          <ContactSection onOpenResume={() => setIsResumeOpen(true)} />
-        </main>
+          {/* WhatsApp Direct Action Button */}
+          <FloatingWhatsAppButton />
 
-        {/* Footer */}
-        <Footer onOpenResume={() => setIsResumeOpen(true)} />
-
-        {/* Resume Modal (View, Copy & Print PDF) */}
-        <ResumeModal 
-          isOpen={isResumeOpen} 
-          onClose={() => setIsResumeOpen(false)} 
-        />
-
-        {/* Instant Project Enquiry Popup (Auto 15s Reminder) */}
-        <ProjectEnquiryModal 
-          isOpen={isEnquiryOpen}
-          onClose={handleCloseEnquiry}
-        />
-
-        {/* Permanent Floating WhatsApp Action Button */}
-        <FloatingWhatsAppButton />
-
-      </div>
+        </div>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

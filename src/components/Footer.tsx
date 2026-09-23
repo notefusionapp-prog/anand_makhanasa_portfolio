@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp, Mail, Phone, MapPin, Smartphone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface FooterProps {
@@ -18,28 +19,30 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
           
           {/* Brand & Title */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#0d6efd] text-white flex items-center justify-center font-mono font-bold text-xs shadow-[0_2px_10px_rgba(13,110,253,0.35)]">
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <div className="w-8 h-8 rounded-xl bg-[#0d6efd] text-white flex items-center justify-center font-mono font-bold text-xs shadow-[0_2px_10px_rgba(13,110,253,0.35)] group-hover:scale-105 transition-transform">
                 AM
               </div>
-              <span className="font-extrabold text-[#0B1B3D] dark:text-white text-base tracking-tight">{PERSONAL_INFO.name}</span>
-            </div>
+              <span className="font-extrabold text-[#0B1B3D] dark:text-white text-base tracking-tight group-hover:text-[#0d6efd] transition-colors">
+                {PERSONAL_INFO.name}
+              </span>
+            </Link>
             <p className="text-xs text-[#475569] dark:text-slate-400 mt-1">
-              Flutter Developer • Cross-Platform Mobile Applications (Android & iOS)
+              Senior Flutter &amp; Mobile Application Developer • Production Android &amp; iOS Apps
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-[#0B1B3D] dark:text-slate-300">
-            <a href="#about" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">About</a>
-            <a href="#skills" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Skills</a>
-            <a href="#experience" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Experience</a>
-            <a href="#published-apps" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Published Apps</a>
-            <a href="#workflow" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Workflow</a>
+          {/* Quick Links with Crawlable Anchors */}
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold text-[#0B1B3D] dark:text-slate-300">
+            <Link to="/" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Home</Link>
+            <Link to="/about" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">About Me</Link>
+            <Link to="/projects" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">8 Published Apps</Link>
+            <a href="/#skills" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Skills</a>
+            <a href="/#experience" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Experience</a>
             <button onClick={onOpenResume} className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors cursor-pointer">
               Resume
             </button>
-            <a href="#contact" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Contact</a>
+            <a href="/#contact" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Contact</a>
           </div>
 
           {/* Back to top */}
@@ -57,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
         {/* Bottom copyright row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11.5px] text-slate-400 dark:text-slate-500">
           <div>
-            © {new Date().getFullYear()} Anand Makhanasa. All rights reserved. Sridix Enterprise Mobile Portfolio.
+            © {new Date().getFullYear()} Anand Makhanasa. All rights reserved.
           </div>
 
           <div className="flex items-center gap-3.5 font-medium">
@@ -65,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
               {PERSONAL_INFO.email}
             </a>
             <span>•</span>
-            <a href={`tel:${PERSONAL_INFO.phone}`} className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">
+            <a href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, '')}`} className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">
               {PERSONAL_INFO.phone}
             </a>
             <span>•</span>

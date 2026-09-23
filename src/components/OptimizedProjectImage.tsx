@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export interface OptimizedProjectImageProps {
   src: string;
@@ -65,14 +65,13 @@ export const OptimizedProjectImage: React.FC<OptimizedProjectImageProps> = ({
   onError,
 }) => {
   const [currentSrc, setCurrentSrc] = useState<string>(src);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
   const [fallbackAttempt, setFallbackAttempt] = useState<number>(0);
+  const imgRef = useRef<HTMLImageElement | null>(null);
 
   // Sync if src prop changes
   useEffect(() => {
     setCurrentSrc(src);
-    setIsLoaded(false);
     setHasError(false);
     setFallbackAttempt(0);
   }, [src]);
@@ -81,7 +80,6 @@ export const OptimizedProjectImage: React.FC<OptimizedProjectImageProps> = ({
   const autoFallback = fallback || deriveFallback(src);
 
   const handleImageLoad = () => {
-    setIsLoaded(true);
     setHasError(false);
     if (onLoad) onLoad();
   };
@@ -101,23 +99,25 @@ export const OptimizedProjectImage: React.FC<OptimizedProjectImageProps> = ({
       console.warn(`[OptimizedProjectImage] Failed asset: ${src}`);
     }
     setHasError(true);
-    setIsLoaded(false);
     if (onError) onError();
   };
 
+  // Immediate check on mount/ref attachment to handle preloaded or cached images
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      if (imgRef.current.naturalWidth === 0) {
+        handleImageError();
+      } else {
+        handleImageLoad();
+      }
+    }
+  }, [currentSrc]);
+
   return (
     <div
-      className={`relative overflow-hidden flex items-center justify-center bg-black/90 ${containerClassName}`}
+      className={`relative w-full h-full overflow-hidden flex items-center justify-center ${containerClassName}`}
       style={aspectRatio ? { aspectRatio: `${aspectRatio}` } : undefined}
     >
-      {/* Subtle neutral background placeholder while loading (NO large spinners, keeps device frame intact) */}
-      {!isLoaded && !hasError && (
-        <div 
-          className="absolute inset-0 bg-slate-900/60 animate-pulse pointer-events-none transition-opacity duration-300"
-          aria-hidden="true" 
-        />
-      )}
-
       {/* Clean elegant neutral fallback when image is unavailable - NEVER shows broken icon or raw alt text */}
       {hasError ? (
         <div 
@@ -137,6 +137,16 @@ export const OptimizedProjectImage: React.FC<OptimizedProjectImageProps> = ({
         </div>
       ) : (
         <img
+          ref={(node) => {
+            imgRef.current = node;
+            if (node && node.complete) {
+              if (node.naturalWidth === 0) {
+                handleImageError();
+              } else {
+                handleImageLoad();
+              }
+            }
+          }}
           src={currentSrc}
           srcSet={computedSrcSet}
           sizes={sizes}
@@ -149,9 +159,9 @@ export const OptimizedProjectImage: React.FC<OptimizedProjectImageProps> = ({
           onLoad={handleImageLoad}
           onError={handleImageError}
           referrerPolicy="no-referrer"
-          className={`w-full h-full transition-opacity duration-300 ease-out select-none pointer-events-none ${
+          className={`w-full h-full select-none pointer-events-none ${
             objectFit === 'contain' ? 'object-contain' : objectFit === 'cover' ? 'object-cover' : 'object-fill'
-          } ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+          } ${className}`}
         />
       )}
     </div>
