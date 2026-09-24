@@ -90,7 +90,7 @@ export const ProjectDetailPage: React.FC = () => {
     <div className="pt-28 pb-20 min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 transition-colors duration-300">
       <SEOHead 
         title={pageTitle}
-        description={`${app.description.slice(0, 155)}... Built by Anand Makhanasa.`}
+        description={app.description.length > 150 ? `${app.description.slice(0, 147)}...` : app.description}
         canonicalPath={`/projects/${app.id}`}
         ogImage={app.screenshots && app.screenshots[0] ? `https://anandmakhanasa.com${app.screenshots[0]}` : undefined}
         structuredData={structuredData}

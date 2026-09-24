@@ -14,6 +14,7 @@ interface PhoneMockupProps {
   badge?: string;
   loading?: 'eager' | 'lazy';
   fetchPriority?: 'high' | 'low' | 'auto';
+  objectFit?: 'contain' | 'cover';
   // Kept for backward compatibility
   type?: string;
 }
@@ -30,21 +31,9 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
   badge,
   loading = 'lazy',
   fetchPriority,
+  objectFit = 'cover',
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [aspectRatio, setAspectRatio] = useState<number>(9 / 16);
-
-  // Automatically detect screenshot's natural proportions (e.g. 9:16 or 9:20) so NO text is ever clipped
-  useEffect(() => {
-    if (!screenshotUrl) return;
-    const img = new Image();
-    img.src = screenshotUrl;
-    img.onload = () => {
-      if (img.naturalWidth && img.naturalHeight) {
-        setAspectRatio(img.naturalWidth / img.naturalHeight);
-      }
-    };
-  }, [screenshotUrl]);
 
   // Subtle 3D tilt tracking with spring physics (restrained 3-5 degrees max)
   const mouseX = useMotionValue(0);
@@ -70,11 +59,11 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
     mouseY.set(0);
   };
 
-  // Proportional dimensions based on size prop - adaptive aspect ratio ensures zero text cutoff
+  // Uniform flagship smartphone dimensions (fixed aspect ratio ensures all device shells are identical)
   const sizeClasses = {
-    sm: 'w-[185px] sm:w-[210px] rounded-[28px] p-2 border-[3.5px]',
-    md: 'w-[255px] sm:w-[280px] md:w-[300px] rounded-[32px] p-2.5 border-[4px]',
-    lg: 'w-[285px] sm:w-[320px] md:w-[340px] rounded-[36px] p-3 border-[4.5px]',
+    sm: 'w-[180px] sm:w-[195px] aspect-[9/18.5] rounded-[28px] p-2 border-[3.5px]',
+    md: 'w-[250px] sm:w-[270px] md:w-[285px] aspect-[9/18.5] rounded-[32px] p-2.5 border-[4px]',
+    lg: 'w-[280px] sm:w-[305px] md:w-[325px] aspect-[9/18.5] rounded-[36px] p-3 border-[4.5px]',
   };
 
   const screenRadiusClasses = {
@@ -100,7 +89,7 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
         style={{
-          aspectRatio: `${aspectRatio}`,
+          aspectRatio: '9 / 18.5',
           rotateX: interactive ? rotateX : 0,
           rotateY: interactive ? rotateY : 0,
           transformStyle: 'preserve-3d',
@@ -128,14 +117,14 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
         <div className="absolute -left-[5.5px] top-30 w-[2.5px] h-7 bg-slate-700 rounded-l-xs" />
         <div className="absolute -right-[5.5px] top-24 w-[2.5px] h-12 bg-slate-700 rounded-r-xs" />
 
-        {/* Sleek Top Speaker & Camera in Bezel (Outside active screen area - prevents cutting top text) */}
+        {/* Sleek Top Speaker & Camera in Bezel */}
         <div className="absolute top-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-30 pointer-events-none">
           <div className="w-1.5 h-1.5 rounded-full bg-slate-950 border border-slate-800" />
           <div className="w-7 h-1 bg-slate-800/90 rounded-full" />
         </div>
 
         {/* Screen Bezel Container with complete image visibility */}
-        <div className={`relative w-full h-full overflow-hidden bg-black flex items-center justify-center ${screenRadiusClasses[size]}`}>
+        <div className={`relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center ${screenRadiusClasses[size]}`}>
           
           {/* Optimized Real Application UI Screenshot */}
           <OptimizedProjectImage
@@ -144,8 +133,8 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({
             loading={loading}
             decoding="async"
             fetchPriority={fetchPriority}
-            objectFit="contain"
-            className="w-full h-full"
+            objectFit={objectFit}
+            className="w-full h-full object-cover object-top"
           />
 
           {/* Physical Glass Reflection Angle (Subtle Apple-style studio sheen) */}

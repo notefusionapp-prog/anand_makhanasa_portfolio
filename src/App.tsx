@@ -1,24 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
-import { PageLoader } from './components/PageLoader';
 import { SpotlightCursor } from './components/SpotlightCursor';
 import { ProjectEnquiryModal } from './components/ProjectEnquiryModal';
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton';
 import { ScrollToTop } from './components/ScrollToTop';
 
 import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { ProjectDetailPage } from './pages/ProjectDetailPage';
+
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(m => ({ default: m.ProjectsPage })));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage').then(m => ({ default: m.ProjectDetailPage })));
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const enquiryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -55,35 +53,32 @@ export default function App() {
         <ScrollToTop />
         <div className="min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 flex flex-col font-sans selection:bg-[#0d6efd]/20 selection:text-[#0d6efd] relative transition-colors duration-300">
           
-          {/* Minimal Premium Entrance Loader */}
-          <AnimatePresence>
-            {isLoading && <PageLoader onComplete={() => setIsLoading(false)} />}
-          </AnimatePresence>
-
           {/* Subtle Ambient Cursor */}
           <SpotlightCursor />
 
           {/* Persistent Navbar */}
           <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-          {/* Crawlable Route Outlets */}
-          <Routes>
-            {/* Primary Homepage with single H1 */}
-            <Route path="/" element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} />
+          {/* Crawlable Route Outlets with Fast Suspense Fallback */}
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <Routes>
+              {/* Primary Homepage with single H1 */}
+              <Route path="/" element={<HomePage onOpenResume={() => setIsResumeOpen(true)} />} />
 
-            {/* Dedicated Personal Profile Pages */}
-            <Route path="/about" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
-            <Route path="/anand-makhanasa" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
+              {/* Dedicated Personal Profile Pages */}
+              <Route path="/about" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
+              <Route path="/anand-makhanasa" element={<AboutPage onOpenResume={() => setIsResumeOpen(true)} />} />
 
-            {/* Published Apps & Projects Directory */}
-            <Route path="/projects" element={<ProjectsPage />} />
+              {/* Published Apps & Projects Directory */}
+              <Route path="/projects" element={<ProjectsPage />} />
 
-            {/* Individual Project & SoftwareApplication Pages */}
-            <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+              {/* Individual Project & SoftwareApplication Pages */}
+              <Route path="/projects/:slug" element={<ProjectDetailPage />} />
 
-            {/* Fallback to Home */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+              {/* Fallback to Home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
 
           {/* Persistent Footer */}
           <Footer onOpenResume={() => setIsResumeOpen(true)} />

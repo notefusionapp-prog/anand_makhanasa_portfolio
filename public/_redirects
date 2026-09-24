@@ -1,1 +1,18 @@
-/*    /index.html   200
+# ==============================================================================
+# 1. 301 Permanent Redirect: Netlify Subdomain -> Primary Custom Domain
+# Prevents duplicate content penalties & consolidates SEO authority (PageRank)
+# ==============================================================================
+https://anand-makhanasa-portfolio.netlify.app/*  https://anandmakhanasa.com/:splat  301!
+
+# ==============================================================================
+# 2. Canonicalization: Enforce HTTPS & Non-WWW Apex Domain
+# ==============================================================================
+https://www.anandmakhanasa.com/*                 https://anandmakhanasa.com/:splat  301!
+http://www.anandmakhanasa.com/*                  https://anandmakhanasa.com/:splat  301!
+http://anandmakhanasa.com/*                      https://anandmakhanasa.com/:splat  301!
+
+# ==============================================================================
+# 3. Single Page Application (SPA) Client-Side Routing Fallback
+# Serves index.html with HTTP 200 for deep links (/about, /projects, etc.)
+# ==============================================================================
+/*  /index.html  200

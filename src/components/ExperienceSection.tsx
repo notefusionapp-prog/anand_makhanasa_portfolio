@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
 import { 
   Briefcase, 
@@ -7,9 +7,244 @@ import {
   ChevronDown, 
   ChevronUp, 
   Sparkles, 
-  Layers 
+  Layers,
+  Smartphone,
+  ExternalLink,
+  ArrowRight,
+  ChevronLeft,
+  Play,
+  Pause
 } from 'lucide-react';
-import { WORK_EXPERIENCES } from '../data/portfolioData';
+import { Link } from 'react-router-dom';
+import { WORK_EXPERIENCES, PUBLISHED_APPS, Project } from '../data/portfolioData';
+import { PhoneMockup } from './PhoneMockup';
+import { OptimizedProjectImage } from './OptimizedProjectImage';
+
+// Reusable Auto-Rotating Carousel Component for Experience Apps
+interface ExperienceAppsCarouselProps {
+  projectIds: string[];
+  companyName: string;
+}
+
+const ExperienceAppsCarousel: React.FC<ExperienceAppsCarouselProps> = ({ projectIds, companyName }) => {
+  const [scrollIndex, setScrollIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Filter projects in the specified order
+  const projects = projectIds
+    .map(id => PUBLISHED_APPS.find(p => p.id === id))
+    .filter((p): p is Project => Boolean(p));
+
+  const total = projects.length;
+
+  // Auto-scroll loop ("aa fariya karvu joye")
+  useEffect(() => {
+    if (isPaused || total <= 1) return;
+
+    const timer = setInterval(() => {
+      setScrollIndex(prev => (prev + 1) % total);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [isPaused, total]);
+
+  // Sync horizontal scroll position when scrollIndex changes
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const card = container.children[scrollIndex] as HTMLElement | undefined;
+    if (card) {
+      container.scrollTo({
+        left: card.offsetLeft - container.offsetLeft,
+        behavior: 'smooth'
+      });
+    }
+  }, [scrollIndex]);
+
+  const handleNext = () => {
+    setScrollIndex(prev => (prev + 1) % total);
+  };
+
+  const handlePrev = () => {
+    setScrollIndex(prev => (prev - 1 + total) % total);
+  };
+
+  if (total === 0) return null;
+
+  return (
+    <div 
+      className="mt-6 pt-5 border-t border-blue-100/80 dark:border-blue-900/60"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
+      {/* Header with Title and Rotating Controls */}
+      <div className="flex items-center justify-between mb-3.5 flex-wrap gap-2">
+        <div className="flex items-center gap-2">
+          <Smartphone className="w-4 h-4 text-[#0d6efd] dark:text-blue-400" />
+          <span className="text-xs font-bold text-[#0B1B3D] dark:text-white uppercase tracking-wider">
+            Key Apps Engineered at {companyName} ({total} Apps)
+          </span>
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/80 text-[10px] text-[#0d6efd] dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-800/60">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            Auto-rotating
+          </span>
+        </div>
+
+        {/* Carousel Navigation buttons & indicator */}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 mr-1">
+            {projects.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setScrollIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                  idx === scrollIndex 
+                    ? 'w-5 bg-[#0d6efd] dark:bg-blue-400' 
+                    : 'w-1.5 bg-blue-200 dark:bg-blue-900 hover:bg-blue-300'
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            title={isPaused ? "Resume auto-rotation" : "Pause auto-rotation"}
+            aria-label={isPaused ? "Play animation" : "Pause animation"}
+            className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors cursor-pointer"
+          >
+            {isPaused ? <Play className="w-3 h-3 fill-current" /> : <Pause className="w-3 h-3 fill-current" />}
+          </button>
+
+          <button
+            onClick={handlePrev}
+            aria-label="Previous app"
+            className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-[#0d6efd] hover:text-white dark:hover:bg-blue-600 text-slate-700 dark:text-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            aria-label="Next app"
+            className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-[#0d6efd] hover:text-white dark:hover:bg-blue-600 text-slate-700 dark:text-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <ChevronRightIcon className="w-4 h-4" />
+          </button>
+
+          <Link 
+            to="/projects"
+            className="ml-2 text-[11px] font-bold text-[#0d6efd] dark:text-blue-400 hover:underline flex items-center gap-1"
+          >
+            <span>Explore all</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+      </div>
+
+      {/* Horizontally scrolling track with momentum and smooth scrolling */}
+      <div 
+        ref={scrollContainerRef}
+        className="flex gap-4 overflow-x-auto pb-3 pt-1 scroll-smooth no-scrollbar snap-x snap-mandatory"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {projects.map((project, idx) => {
+          const firstScreen = project.screenshots && project.screenshots[0] 
+            ? project.screenshots[0] 
+            : '/images/projects/hira-diary/screen-01.webp';
+          const isSelected = idx === scrollIndex;
+
+          return (
+            <div
+              key={project.id}
+              onClick={() => setScrollIndex(idx)}
+              className={`snap-start shrink-0 w-[260px] sm:w-[280px] p-3 rounded-2xl bg-[#f8fbff] dark:bg-[#070d1e] border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                isSelected 
+                  ? 'border-[#0d6efd] shadow-[0_8px_25px_-5px_rgba(13,110,253,0.25)] ring-2 ring-[#0d6efd]/30 scale-[1.01]' 
+                  : 'border-blue-100 dark:border-blue-900/60 hover:border-[#0d6efd]/50 opacity-90 hover:opacity-100'
+              }`}
+            >
+              <div>
+                {/* App Header */}
+                <div className="flex items-center gap-2.5 mb-2.5">
+                  {project.iconUrl ? (
+                    <img 
+                      src={project.iconUrl} 
+                      alt={`${project.name} app icon`}
+                      className="w-8 h-8 rounded-xl object-cover border border-blue-100 dark:border-blue-800 shadow-2xs shrink-0"
+                      loading="lazy"
+                      width={32}
+                      height={32}
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-950 flex items-center justify-center shrink-0">
+                      <Smartphone className="w-4 h-4 text-[#0d6efd]" />
+                    </div>
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-xs font-bold text-[#0B1B3D] dark:text-white truncate">
+                      {project.name}
+                    </h4>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">
+                      {project.platform.join(' • ')}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Embedded Phone Mockup */}
+                <div className="py-1 flex justify-center">
+                  <PhoneMockup 
+                    screenshotUrl={firstScreen}
+                    appName={project.name}
+                    accentColor={project.accentColor}
+                    size="sm"
+                    interactive={true}
+                    badge="Live on Play Store"
+                    className="scale-90 sm:scale-95 origin-center"
+                  />
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-3 pt-2.5 border-t border-blue-100/60 dark:border-blue-900/50 flex items-center justify-between text-[11px]">
+                <Link
+                  to={`/projects/${project.id}`}
+                  className="font-bold text-[#0d6efd] dark:text-blue-400 hover:underline flex items-center gap-1"
+                >
+                  <span>Case Study</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+
+                {project.playStoreUrl && (
+                  <a
+                    href={project.playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${project.name} on Google Play Store`}
+                    className="px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-[#0d6efd] dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 text-[10.5px] font-semibold hover:bg-[#0d6efd] hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    <span>Google Play</span>
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+// Simple ChevronRight icon helper
+const ChevronRightIcon = ({ className }: { className?: string }) => (
+  <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+);
 
 export const ExperienceSection: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
@@ -35,7 +270,7 @@ export const ExperienceSection: React.FC = () => {
     <section id="experience" ref={containerRef} className="py-24 bg-[#fbfdff] dark:bg-[#070d1e] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Sridix Style) */}
+        {/* Section Header (Modern Style) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -208,6 +443,14 @@ export const ExperienceSection: React.FC = () => {
                         ))}
                       </div>
                     </div>
+
+                    {/* Associated Production Applications with Auto-Rotating Phone Mockup Carousel */}
+                    {exp.associatedProjectIds && exp.associatedProjectIds.length > 0 && (
+                      <ExperienceAppsCarousel 
+                        projectIds={exp.associatedProjectIds}
+                        companyName={exp.company}
+                      />
+                    )}
 
                   </motion.div>
                 </div>

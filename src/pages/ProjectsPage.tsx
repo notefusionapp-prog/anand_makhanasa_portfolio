@@ -35,7 +35,7 @@ export const ProjectsPage: React.FC = () => {
     "@id": "https://anandmakhanasa.com/projects#webpage",
     "url": "https://anandmakhanasa.com/projects",
     "name": "Published Mobile Applications, Flutter Web & Websites — Anand Makhanasa",
-    "description": "Production Flutter mobile applications (8+ on Google Play Store), Flutter Web admin consoles, and SEO-optimized websites engineered and maintained by Anand Makhanasa.",
+    "description": "Production Flutter mobile applications (11+ on Google Play Store), Flutter Web admin consoles, and SEO-optimized websites engineered and maintained by Anand Makhanasa.",
     "isPartOf": {
       "@type": "WebSite",
       "@id": "https://anandmakhanasa.com/#website",
@@ -68,7 +68,7 @@ export const ProjectsPage: React.FC = () => {
     <div className="pt-28 pb-20 min-h-screen bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 transition-colors duration-300">
       <SEOHead 
         title="Projects & Applications — Anand Makhanasa | Flutter, Web & SEO"
-        description="Explore 8+ published mobile apps, responsive Flutter Web admin dashboards, and SEO websites engineered by Senior Mobile Developer Anand Makhanasa."
+        description="Explore 11+ published mobile apps, responsive Flutter Web admin dashboards, and SEO websites engineered by Senior Mobile Developer Anand Makhanasa."
         canonicalPath="/projects"
         structuredData={projectsCollectionSchema}
       />
@@ -91,7 +91,7 @@ export const ProjectsPage: React.FC = () => {
             Mobile Apps, Flutter Web &amp; Websites
           </h1>
           <p className="mt-4 text-sm sm:text-base text-[#475569] dark:text-slate-300 leading-relaxed">
-            Engineered with Flutter, Dart, Firebase, and modern responsive web technologies. Featuring 8+ published Google Play applications alongside enterprise Flutter Web back-offices and high-ranking SEO portals.
+            Engineered with Flutter, Dart, Firebase, and modern responsive web technologies. Featuring 11+ published Google Play applications alongside enterprise Flutter Web back-offices and high-ranking SEO portals.
           </p>
 
           {/* Filter Pills */}
@@ -104,7 +104,7 @@ export const ProjectsPage: React.FC = () => {
                   : 'bg-white dark:bg-[#0B1B3D] border border-blue-100 dark:border-blue-900 text-slate-600 dark:text-slate-300 hover:border-blue-300'
               }`}
             >
-              All Projects (11)
+              All Projects (14)
             </button>
             <button
               onClick={() => setSelectedFilter('published-mobile')}
@@ -114,7 +114,7 @@ export const ProjectsPage: React.FC = () => {
                   : 'bg-white dark:bg-[#0B1B3D] border border-blue-100 dark:border-blue-900 text-slate-600 dark:text-slate-300 hover:border-blue-300'
               }`}
             >
-              Published Store Apps (8+)
+              Published Store Apps (11+)
             </button>
             <button
               onClick={() => setSelectedFilter('web-admin')}

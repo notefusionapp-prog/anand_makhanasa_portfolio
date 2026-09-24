@@ -19,34 +19,38 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
-  // Primary profile image from user's imgbb link with local high-res fallbacks
-  const IBB_PHOTO_URL = 'https://i.ibb.co/ksdfXGZ5/image.png';
+  // Primary profile image from local high-performance WebP (70 KB, 720x764)
   const LOCAL_PROFILE_WEBP = '/profile.webp';
   const LOCAL_PROFILE_PHOTO = '/profile.png';
   const LOCAL_OPT_PHOTO = '/assets/anand-makhanasa-opt.jpg';
   const LOCAL_FULL_PHOTO = '/assets/anand-makhanasa.png';
 
   const [profilePhoto, setProfilePhoto] = useState<string>(() => {
-    return localStorage.getItem('anand_profile_photo_v5') || IBB_PHOTO_URL;
+    try {
+      const saved = localStorage.getItem('anand_profile_photo_v5');
+      if (saved && !saved.includes('ibb.co')) {
+        return saved;
+      }
+    } catch {
+      // Ignore localStorage read errors
+    }
+    return LOCAL_PROFILE_WEBP;
   });
   const [fallbackAttempt, setFallbackAttempt] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Fallback chain: ImgBB -> Local WebP -> Local PNG -> Local Opt -> Local Full
+  // Fallback chain: Local WebP (70KB) -> Local PNG -> Local Opt -> Local Full
   const handleImageError = () => {
     if (fallbackAttempt === 0) {
       setFallbackAttempt(1);
-      setProfilePhoto(LOCAL_PROFILE_WEBP);
+      setProfilePhoto(LOCAL_PROFILE_PHOTO);
     } else if (fallbackAttempt === 1) {
       setFallbackAttempt(2);
-      setProfilePhoto(LOCAL_PROFILE_PHOTO);
+      setProfilePhoto(LOCAL_OPT_PHOTO);
     } else if (fallbackAttempt === 2) {
       setFallbackAttempt(3);
-      setProfilePhoto(LOCAL_OPT_PHOTO);
-    } else if (fallbackAttempt === 3) {
-      setFallbackAttempt(4);
       setProfilePhoto(LOCAL_FULL_PHOTO);
     }
   };
@@ -98,12 +102,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
   const handleResetPhoto = (e: React.MouseEvent) => {
     e.stopPropagation();
-    localStorage.removeItem('anand_profile_photo_v3');
-    setProfilePhoto(IBB_PHOTO_URL);
+    try {
+      localStorage.removeItem('anand_profile_photo_v5');
+      localStorage.removeItem('anand_profile_photo_v3');
+    } catch {
+      // Ignore storage errors
+    }
+    setProfilePhoto(LOCAL_PROFILE_WEBP);
     setFallbackAttempt(0);
   };
 
-  const isCustomPhoto = profilePhoto !== IBB_PHOTO_URL && profilePhoto !== LOCAL_OPT_PHOTO && profilePhoto !== LOCAL_FULL_PHOTO;
+  const isCustomPhoto = profilePhoto !== LOCAL_PROFILE_WEBP && profilePhoto !== LOCAL_PROFILE_PHOTO && profilePhoto !== LOCAL_OPT_PHOTO && profilePhoto !== LOCAL_FULL_PHOTO;
 
   // Motion variants for staggered entrance
   const containerVariants = {
@@ -134,17 +143,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
       id="home" 
       className="relative min-h-[92vh] pt-32 pb-16 lg:pt-38 lg:pb-24 flex items-center overflow-hidden bg-[#fbfdff] dark:bg-[#070d1e] transition-colors duration-300"
     >
-      {/* Sridix Signature Concentric Geometric Background Rings */}
+      {/* Modern Signature Concentric Geometric Background Rings */}
       <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[620px] h-[620px] border border-blue-100/70 dark:border-blue-900/30 rounded-full opacity-60 pointer-events-none -z-10" />
       <div className="absolute top-1/2 right-[0%] -translate-y-1/2 w-[880px] h-[880px] border border-blue-50/70 dark:border-blue-950/40 rounded-full opacity-50 pointer-events-none -z-10" />
       <div className="absolute top-20 right-24 w-3 h-3 bg-[#0d6efd] rounded-full opacity-40 pointer-events-none -z-10" />
       <div className="absolute bottom-24 left-16 w-2.5 h-2.5 bg-[#0d6efd] rounded-full opacity-35 pointer-events-none -z-10" />
 
-      {/* Sridix Ambient Blue Light Glows */}
+      {/* Modern Ambient Blue Light Glows */}
       <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[400px] bg-gradient-to-tr from-[#0d6efd]/10 via-[#2b85ff]/8 to-transparent dark:from-[#0d6efd]/15 dark:via-blue-600/10 dark:to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#0d6efd]/5 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Subtle Sridix dot grid pattern */}
+      {/* Subtle Modern dot grid pattern */}
       <div 
         className="absolute inset-0 opacity-[0.035] dark:opacity-[0.03] pointer-events-none -z-10"
         style={{
@@ -164,7 +173,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left"
           >
             
-            {/* Sridix Style Pill Eyebrow */}
+            {/* Modern Style Pill Eyebrow */}
             <motion.div 
               variants={itemVariants}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f0f6ff] dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/80 text-xs font-semibold text-[#0d6efd] dark:text-blue-400 mb-6 shadow-xs"
@@ -198,7 +207,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               variants={itemVariants}
               className="mt-5 text-base sm:text-lg text-[#475569] dark:text-slate-300 font-normal leading-relaxed max-w-xl"
             >
-              Building production-ready Android, iOS and Flutter Web applications, admin panels and modern websites. Proven track record with 8+ published applications on Google Play Store, scalable Bloc/Cubit architecture, and real-time backend integrations.
+              Building production-ready Android, iOS and Flutter Web applications, admin panels and modern websites. Proven track record with 11+ published applications on Google Play Store, scalable Bloc/Cubit architecture, and real-time backend integrations.
             </motion.p>
 
             {/* Verified Credentials Checklist */}
@@ -208,7 +217,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             >
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#10b981] shrink-0" />
-                <span>8+ Published Apps</span>
+                <span>11+ Published Apps</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#0d6efd] dark:text-blue-400 shrink-0" />
@@ -220,13 +229,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               </div>
             </motion.div>
 
-            {/* Action Buttons: Sridix Rounded Pill CTAs */}
+            {/* Action Buttons: Modern Rounded Pill CTAs */}
             <motion.div 
               variants={itemVariants}
               className="mt-8 flex flex-wrap items-center gap-3.5 w-full sm:w-auto"
             >
               <a
                 href="#published-apps"
+                aria-label="View Anand's 11+ published mobile apps and web projects"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0d6efd] hover:bg-[#0b5ed7] text-white font-bold text-sm shadow-[0_10px_25px_rgba(13,110,253,0.25)] hover:shadow-[0_14px_30px_rgba(13,110,253,0.35)] transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 <span>View My Work</span>
@@ -235,6 +245,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
               <button
                 onClick={onOpenResume}
+                aria-label="Download Anand Makhanasa's verified CV and resume"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white dark:bg-[#0f1f42] hover:bg-blue-50/70 dark:hover:bg-blue-900/40 text-[#0B1B3D] dark:text-white border border-blue-200/90 dark:border-blue-800/80 font-semibold text-sm shadow-xs transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-[#0d6efd] dark:text-blue-400" />
@@ -252,7 +263,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Years Experience</div>
               </div>
               <div>
-                <div className="font-mono text-2xl font-extrabold text-[#10b981] tracking-tight">8+</div>
+                <div className="font-mono text-2xl font-extrabold text-[#10b981] tracking-tight">11+</div>
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-medium">Published Store Apps</div>
               </div>
               <div>
@@ -348,6 +359,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                     <button
                       onClick={handleResetPhoto}
                       title="Reset to default portrait"
+                      aria-label="Reset to default portrait"
                       className="p-1.5 rounded-full bg-black/75 hover:bg-black text-white/90 hover:text-white backdrop-blur-md border border-white/10 shadow-md transition-transform hover:scale-110 cursor-pointer"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
@@ -356,6 +368,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                   <button
                     onClick={() => fileInputRef.current?.click()}
                     title="Upload or change profile photo"
+                    aria-label="Upload or change profile photo"
                     className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 hover:bg-black text-white/95 backdrop-blur-md border border-white/15 shadow-md text-[10.5px] font-semibold transition-all hover:scale-105 cursor-pointer"
                   >
                     <Camera className="w-3.5 h-3.5 text-blue-400" />
@@ -394,7 +407,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
               </motion.div>
 
-              {/* Floating Badge 2: Bottom-Left "8+ Published Apps" */}
+              {/* Floating Badge 2: Bottom-Left "11+ Published Apps" */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -406,7 +419,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-slate-900 dark:text-white">8+ Store Apps</span>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">11+ Store Apps</span>
                     <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">
                       Live
                     </span>

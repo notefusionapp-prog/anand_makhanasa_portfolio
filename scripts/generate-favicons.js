@@ -42,7 +42,7 @@ const masterSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
           stroke-width="8" 
           stroke-linejoin="round"/>
           
-    <!-- Sridix Brand Electric Orange Dot Accent -->
+    <!-- Modern Brand Electric Orange Dot Accent -->
     <circle cx="348" cy="112" r="18" fill="#f95721" />
   </g>
 </svg>`;

@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* SRIDIX LIGHT THEME (DEFAULT - sridix.com) */
+  /* LIGHT THEME (DEFAULT) */
   --bg-main: #fbfdff;
   --bg-secondary: #f0f6ff;
   --bg-card: #ffffff;
@@ -24,7 +24,7 @@
 }
 
 .dark {
-  /* SRIDIX ENTERPRISE DARK MODE */
+  /* ENTERPRISE DARK MODE */
   --bg-main: #070d1e;
   --bg-secondary: #0a1329;
   --bg-card: #0f1f42;

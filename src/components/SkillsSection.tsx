@@ -47,7 +47,7 @@ export const SkillsSection: React.FC = () => {
     <section id="skills" className="py-24 bg-white dark:bg-[#081226] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Sridix Style) */}
+        {/* Section Header (Modern Style) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export const SkillsSection: React.FC = () => {
           {/* Search bar & Category filters */}
           <div className="mt-8 w-full flex flex-col sm:flex-row items-center justify-between gap-4">
             
-            {/* Search Input (Sridix Style) */}
+            {/* Search Input (Modern Style) */}
             <div className="relative w-full sm:w-72">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
@@ -194,7 +194,7 @@ export const SkillsSection: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* Quick Tech Highlights Banner with Motion (Sridix Style) */}
+        {/* Quick Tech Highlights Banner with Motion (Modern Style) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

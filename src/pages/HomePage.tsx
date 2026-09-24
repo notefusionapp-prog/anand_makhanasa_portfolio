@@ -18,7 +18,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenResume }) => {
     <>
       <SEOHead 
         title="Anand Makhanasa | Senior Flutter & Mobile Application Developer"
-        description="Anand Makhanasa is a Senior Flutter & Mobile Application Developer specializing in Flutter, Dart, Firebase, APIs, Bloc/Cubit, and production cross-platform mobile apps for Android and iOS."
+        description="Anand Makhanasa is a Senior Flutter & Mobile Application Developer specializing in Flutter, Dart, Firebase, APIs, Bloc/Cubit, and cross-platform mobile apps."
         canonicalPath="/"
       />
 

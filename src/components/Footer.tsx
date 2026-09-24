@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
           <div className="flex flex-wrap items-center justify-center gap-5 text-xs font-semibold text-[#0B1B3D] dark:text-slate-300">
             <Link to="/" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Home</Link>
             <Link to="/about" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">About Me</Link>
-            <Link to="/projects" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">8+ Published Apps</Link>
+            <Link to="/projects" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">11+ Published Apps</Link>
             <a href="/#skills" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Skills</a>
             <a href="/#experience" className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors">Experience</a>
             <button onClick={onOpenResume} className="hover:text-[#0d6efd] dark:hover:text-blue-400 transition-colors cursor-pointer">

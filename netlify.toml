@@ -2,6 +2,21 @@
   publish = "dist"
   command = "npm run build"
 
+# 1. Force 301 Redirect: Netlify Subdomain -> Primary Custom Domain
+[[redirects]]
+  from = "https://anand-makhanasa-portfolio.netlify.app/*"
+  to = "https://anandmakhanasa.com/:splat"
+  status = 301
+  force = true
+
+# 2. Force 301 Redirect: WWW to Apex Domain (Canonicalization)
+[[redirects]]
+  from = "https://www.anandmakhanasa.com/*"
+  to = "https://anandmakhanasa.com/:splat"
+  status = 301
+  force = true
+
+# 3. SPA Client-Side Routing Fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -12,3 +27,13 @@
   # Submissions to any form will be processed by Netlify Forms
   # Notifications are configured in Netlify Dashboard:
   # Site Settings > Forms > Form notifications > Email notification to anandmakhanasa1631@gmail.com
+
+# HTTP Headers for SEO & Security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+

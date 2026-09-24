@@ -20,12 +20,12 @@ interface AboutSectionProps {
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
   return (
     <section id="about" className="py-24 bg-[#fbfdff] dark:bg-[#070d1e] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300 overflow-hidden">
-      {/* Sridix background decorative ring */}
+      {/* Modern background decorative ring */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 border border-blue-100/50 dark:border-blue-900/20 rounded-full opacity-60 pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Sridix-style Section Header with horizontal line eyebrow */}
+        {/* Modern-style Section Header with horizontal line eyebrow */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
             className="lg:col-span-7 space-y-8"
           >
             
-            {/* Story & Background Card (Sridix Style) */}
+            {/* Story & Background Card (Modern Style) */}
             <div className="p-6 sm:p-8 rounded-[24px] bg-white dark:bg-[#0f1f42] border border-blue-100/80 dark:border-blue-900/60 shadow-[0_4px_25px_rgba(11,27,61,0.04)] space-y-4">
               <h3 className="text-xl font-bold text-[#0B1B3D] dark:text-white tracking-tight flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#0d6efd]" />
@@ -196,7 +196,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenResume }) => {
 
               </div>
 
-              {/* View Resume Action (Sridix Style Pill) */}
+              {/* View Resume Action (Modern Style Pill) */}
               <div className="pt-2">
                 <motion.button
                   onClick={onOpenResume}

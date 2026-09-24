@@ -19,24 +19,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 25);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 25);
 
-      if (isHomePage) {
-        const sections = ['home', 'about', 'skills', 'experience', 'published-apps', 'workflow', 'contact'];
-        const scrollPosition = window.scrollY + 140;
+          if (isHomePage) {
+            const sections = ['home', 'about', 'skills', 'experience', 'published-apps', 'workflow', 'contact'];
+            const scrollPosition = window.scrollY + 140;
 
-        for (const sectionId of sections) {
-          const el = document.getElementById(sectionId);
-          if (el) {
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-            if (scrollPosition >= top && scrollPosition < top + height) {
-              setActiveSection(sectionId);
-              break;
+            for (const sectionId of sections) {
+              const el = document.getElementById(sectionId);
+              if (el) {
+                const top = el.offsetTop;
+                const height = el.offsetHeight;
+                if (scrollPosition >= top && scrollPosition < top + height) {
+                  setActiveSection(sectionId);
+                  break;
+                }
+              }
             }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -139,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 : 'text-slate-600 dark:text-slate-300 hover:text-[#0B1B3D] dark:hover:text-white'
             }`}
           >
-            Published Apps (8+)
+            Published Apps (11+)
           </Link>
 
           <button
@@ -173,6 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           {/* Download/View Resume CTA */}
           <motion.button
             onClick={onOpenResume}
+            aria-label="Download or view Anand's resume"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-blue-200 dark:border-blue-800/80 bg-blue-50/70 dark:bg-blue-950/40 text-[#0d6efd] dark:text-blue-400 hover:bg-blue-100/70 dark:hover:bg-blue-900/50 text-xs font-semibold transition-all shadow-xs cursor-pointer"
@@ -184,6 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           {/* Direct Contact Button */}
           <motion.button
             onClick={() => handleNavClick('/', 'contact')}
+            aria-label="Contact Anand Makhanasa for job or freelance projects"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0d6efd] hover:bg-[#0b5ed7] text-white text-xs font-semibold shadow-xs shadow-blue-500/25 transition-all cursor-pointer"
@@ -236,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-4 py-2.5 rounded-xl text-left text-xs font-bold text-[#0B1B3D] dark:text-white hover:bg-blue-50 dark:hover:bg-blue-950/60 flex items-center justify-between"
               >
-                <span>8+ Published Apps</span>
+                <span>11+ Published Apps</span>
               </Link>
 
               <button

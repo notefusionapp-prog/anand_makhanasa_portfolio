@@ -21,7 +21,7 @@ export interface Project {
   accentColor: string;
   iconUrl?: string;
   screenshots?: string[];
-  previewType?: 'diamond' | 'finance' | 'tech' | 'fitness' | 'astrology' | 'puzzle' | 'scanner' | 'astrologer-partner' | 'admin-panel' | 'website-preview';
+  previewType?: 'diamond' | 'finance' | 'tech' | 'fitness' | 'astrology' | 'puzzle' | 'scanner' | 'astrologer-partner' | 'admin-panel' | 'website-preview' | 'kids-quiz' | 'media-vault' | 'arrow-puzzle';
 }
 
 export interface ExperienceItem {
@@ -34,6 +34,7 @@ export interface ExperienceItem {
   responsibilities: string[];
   technologies: string[];
   highlights: string[];
+  associatedProjectIds?: string[];
 }
 
 export interface SkillCategory {
@@ -52,7 +53,7 @@ export const PERSONAL_INFO = {
   name: "Anand Makhanasa",
   role: "Senior Flutter & Mobile Application Developer",
   tagline: "Building production-ready Android, iOS and Flutter Web applications, admin panels and modern websites.",
-  summary: "Senior Flutter & Mobile Application Developer with 2.5+ years of experience building production-ready Android, iOS, and Flutter Web applications, admin panels, and modern SEO-optimized websites. Proficient in Bloc/Cubit, GetX, and Riverpod state management, responsive UI development from Figma, REST APIs, Socket.IO, Firebase, and payment gateways. Proven track record of 8+ published applications on Google Play Store and live web deployments.",
+  summary: "Senior Flutter & Mobile Application Developer with 2.5+ years of experience building production-ready Android, iOS, and Flutter Web applications, admin panels, and modern SEO-optimized websites. Proficient in Bloc/Cubit, GetX, and Riverpod state management, responsive UI development from Figma, REST APIs, Socket.IO, Firebase, and payment gateways. Proven track record of 11+ published applications on Google Play Store and live web deployments.",
   email: "anandmakhanasa1631@gmail.com",
   phone: "+91 9537107504",
   location: "Surat, Gujarat, India",
@@ -60,11 +61,11 @@ export const PERSONAL_INFO = {
   github: "https://github.com",
   linkedin: "https://www.linkedin.com/in/anand-makhanasa-144b1229a",
   experienceYears: "2.5+",
-  profileImage: "https://i.ibb.co/ksdfXGZ5/image.png",
+  profileImage: "/profile.webp",
   platforms: ["Android", "iOS", "Flutter Web"],
   stats: [
     { label: "Years Experience", value: "2.5+" },
-    { label: "Published Store Apps", value: "8+" },
+    { label: "Published Store Apps", value: "11+" },
     { label: "Flutter Web", value: "1" },
     { label: "Websites", value: "2" },
   ]
@@ -376,6 +377,123 @@ export const PUBLISHED_APPS: Project[] = [
       "/images/projects/astro-live-chat-partner/screen-04.webp"
     ],
     previewType: "astrologer-partner"
+  },
+  {
+    id: "kids-quiz",
+    name: "Kids Quiz: Learning & Trivia",
+    subtitle: "Interactive Educational Quiz Game for Kids with Audio Pronunciation",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.codexgames.kids.vehicale.animal.birds.trivia.quiz&hl=en",
+    isPublished: true,
+    type: "published",
+    projectType: "mobile-app",
+    deviceType: "mobile",
+    category: "education",
+    role: "Flutter Developer",
+    companyConnection: "CodExpert Solutions",
+    platform: ["Android", "Google Play"],
+    description: "An engaging early-learning interactive trivia quiz game designed for children to explore vehicles, animals, birds, fruits, and shapes with vibrant visuals, voice pronunciations, and celebration rewards.",
+    keyFeatures: [
+      "Diverse quiz categories: Vehicles, Animals, Birds, Shapes, and General Knowledge",
+      "Interactive audio feedback with crystal-clear native speech pronunciation",
+      "Vibrant high-contrast child-friendly UI with playful animations and sound effects",
+      "Progressive scoring system with star ratings and celebration badges",
+      "Offline play capability with zero requirement for constant data connectivity",
+      "Parental gates and family-friendly UX compliant with Google Play Designed for Families"
+    ],
+    technologies: ["Flutter", "Dart", "Audio Players", "Lottie Animations", "State Management", "Local Storage", "Play Console Families Policy"],
+    contribution: [
+      "Architected interactive quiz navigation, randomized question pools, and scoring logic",
+      "Implemented sound effects and voice pronunciation triggers for multi-sensory learning",
+      "Designed responsive and colorful UI widgets ensuring smooth 60fps animations across tablets and phones",
+      "Optimized Google Play Store listing assets, icons, and store release bundles"
+    ],
+    accentColor: "#f59e0b", // Amber/Gold
+    iconUrl: "/images/projects/kids-quiz/icon.webp",
+    screenshots: [
+      "/images/projects/kids-quiz/screen-01.webp",
+      "/images/projects/kids-quiz/screen-02.webp",
+      "/images/projects/kids-quiz/screen-03.webp",
+      "/images/projects/kids-quiz/screen-04.webp"
+    ],
+    previewType: "kids-quiz"
+  },
+  {
+    id: "status-craft",
+    name: "Status Craft: Media & Video Saver",
+    subtitle: "High-Speed Media Saver, Status Manager & Video Status Tool",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.mediavault.mediavault&hl=en",
+    isPublished: true,
+    type: "published",
+    projectType: "mobile-app",
+    deviceType: "mobile",
+    category: "utilities",
+    role: "Flutter Developer",
+    companyConnection: "CodExpert Solutions",
+    platform: ["Android", "Google Play"],
+    description: "A fast utility mobile tool engineered for instant media saving, video status management, HD photo viewing, and direct sharing across social messaging platforms.",
+    keyFeatures: [
+      "Instant media detection and high-speed multi-file download manager",
+      "Built-in HD video player with gesture controls and full-screen playback",
+      "Integrated image viewer with multi-touch pinch-to-zoom and pan support",
+      "Direct repost and one-tap share integration with messaging apps",
+      "Scoped Storage compliance ensuring secure file access on modern Android 13/14+",
+      "Clean Material 3 interface with dark mode and lightweight memory footprint"
+    ],
+    technologies: ["Flutter", "Dart", "Scoped Storage", "Video Player Plugin", "Photo View", "Share Plus", "Android Permissions", "Clean UI"],
+    contribution: [
+      "Engineered Scoped Storage file scanning and high-speed saving workflows",
+      "Built fluid custom video playback controls and zoomable photo viewer components",
+      "Implemented seamless one-tap sharing and social repost actions",
+      "Ensured battery-friendly background operations and memory optimization for large video files"
+    ],
+    accentColor: "#10b981", // Emerald
+    iconUrl: "/images/projects/media-vault/icon.webp",
+    screenshots: [
+      "/images/projects/media-vault/screen-01.webp",
+      "/images/projects/media-vault/screen-02.webp",
+      "/images/projects/media-vault/screen-03.webp",
+      "/images/projects/media-vault/screen-04.webp"
+    ],
+    previewType: "media-vault"
+  },
+  {
+    id: "arrow-puzzle",
+    name: "Arrow Puzzle: Tap Away",
+    subtitle: "Satisfying Logic Block Puzzle & Directional Arrow Tapping Game",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.codexatgames.arrowpuzzle&hl=en",
+    isPublished: true,
+    type: "published",
+    projectType: "mobile-app",
+    deviceType: "mobile",
+    category: "entertainment",
+    role: "Flutter Developer",
+    companyConnection: "CodExpert Solutions",
+    platform: ["Android", "Google Play"],
+    description: "A brain-teasing 3D-inspired logic puzzle game where players tap directional arrow blocks to untangle intricate geometric patterns, clear obstacles, and advance through hundreds of engaging levels.",
+    keyFeatures: [
+      "Hundreds of uniquely designed logic levels with increasing geometric complexity",
+      "Directional tapping mechanics with collision detection and clear trajectory paths",
+      "Satisfying tactile haptic feedback on successful block releases and clearances",
+      "Smooth 60fps animations with dynamic particle effects and celebratory reveals",
+      "Intuitive hint system and undo mechanics for stress-free gameplay",
+      "Offline game state persistence with automatic progress synchronization"
+    ],
+    technologies: ["Flutter", "Dart", "Custom Canvas", "Haptic Feedback", "Vector Math & Collision", "SharedPreferences", "Lottie"],
+    contribution: [
+      "Implemented directional collision detection algorithms and block launch animations",
+      "Created smooth touch gestures and responsive tactile haptic responses",
+      "Built procedural level loading, star rating calculations, and persistent progress tracking",
+      "Optimized rendering pipeline to maintain rock-solid 60fps performance on budget Android devices"
+    ],
+    accentColor: "#6366f1", // Indigo
+    iconUrl: "/images/projects/arrow-puzzle/icon.webp",
+    screenshots: [
+      "/images/projects/arrow-puzzle/screen-01.webp",
+      "/images/projects/arrow-puzzle/screen-02.webp",
+      "/images/projects/arrow-puzzle/screen-03.webp",
+      "/images/projects/arrow-puzzle/screen-04.webp"
+    ],
+    previewType: "arrow-puzzle"
   }
 ];
 
@@ -524,11 +642,13 @@ export const WORK_EXPERIENCES: ExperienceItem[] = [
       "Flutter", "Dart", "Flutter Web", "Bloc/Cubit", "GetX", "Riverpod", "Socket.IO", "RESTful APIs", "Deep Linking", "Google Play Console", "App Store Connect", "TestFlight", "Website Development", "SEO Implementation", "Git"
     ],
     highlights: [
-      "Successfully deployed 8+ production apps to Google Play Store, Apple App Store, and live Web platforms",
+      "Successfully deployed 11+ production apps to Google Play Store, Apple App Store, and live Web platforms",
+      "Engineered Vyonic health platform, Kids Quiz trivia app, Status Craft media tool, and Arrow Puzzle logic game",
       "Engineered real-time socket connections for live slot management, chat, and assessments",
       "Built responsive Flutter Web admin panels and high-ranking SEO web portals for production mobile apps",
       "Transformed complex Figma designs into responsive 60fps Flutter widgets"
-    ]
+    ],
+    associatedProjectIds: ["vyonic", "kids-quiz", "status-craft", "arrow-puzzle"]
   },
   {
     company: "Globalia Soft LLP",
@@ -556,7 +676,8 @@ export const WORK_EXPERIENCES: ExperienceItem[] = [
       "Integrated Razorpay payment gateway and real-time chat for consultation workflows",
       "Handled live Firestore listeners and OTP authentication flows",
       "Cut down build times and optimized widget tree re-renders across production screens"
-    ]
+    ],
+    associatedProjectIds: ["astro-live-chat", "astro-live-chat-partner", "art-puzzle", "doc-scanner"]
   }
 ];
 

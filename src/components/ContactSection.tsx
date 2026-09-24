@@ -92,7 +92,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
     <section id="contact" className="py-24 bg-[#fbfdff] dark:bg-[#070d1e] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Sridix Style) */}
+        {/* Section Header (Modern Style) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

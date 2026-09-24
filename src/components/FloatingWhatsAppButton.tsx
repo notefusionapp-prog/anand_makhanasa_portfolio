@@ -25,6 +25,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Direct WhatsApp chat with Anand Makhanasa"
               initial={{ opacity: 0, x: 10, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.95 }}

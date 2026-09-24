@@ -32,22 +32,22 @@ export const PublishedAppsSection: React.FC = () => {
   });
 
   const filterTabs: { id: FilterCategory; label: string; count: string | number }[] = [
-    { id: 'all', label: 'All Published Apps', count: '8+' },
+    { id: 'all', label: 'All Published Apps', count: '11+' },
     { id: 'productivity', label: 'Productivity & Notes', count: PUBLISHED_APPS.filter(a => a.category === 'productivity').length },
     { id: 'lifestyle', label: 'Lifestyle & Real-Time Chat', count: PUBLISHED_APPS.filter(a => a.category === 'lifestyle' || a.category === 'business' || a.category === 'health').length },
-    { id: 'utilities-games', label: 'Utilities & Puzzle Games', count: PUBLISHED_APPS.filter(a => a.category === 'utilities' || a.category === 'entertainment' || a.category === 'education').length },
+    { id: 'utilities-games', label: 'Utilities, Quizzes & Games', count: PUBLISHED_APPS.filter(a => a.category === 'utilities' || a.category === 'entertainment' || a.category === 'education').length },
   ];
 
   return (
     <section id="published-apps" className="py-24 sm:py-32 bg-white dark:bg-[#081226] border-t border-blue-100/60 dark:border-blue-950/60 relative transition-colors duration-300 overflow-hidden">
-      {/* Sridix Background Ambient Lighting & Geometric rings */}
+      {/* Modern Background Ambient Lighting & Geometric rings */}
       <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] border border-blue-100/40 dark:border-blue-900/20 rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-1/3 -left-20 w-[500px] h-[500px] border border-blue-50/50 dark:border-blue-950/30 rounded-full pointer-events-none -z-10" />
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#0d6efd]/5 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Sridix Style) */}
+        {/* Section Header (Modern Style) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export const PublishedAppsSection: React.FC = () => {
             Real production applications published on the Google Play Store and iOS App Store. All mockups display authentic application interfaces and store screenshots.
           </p>
 
-          {/* Interactive Category Filter Pills (Sridix Style Rounded Full) */}
+          {/* Interactive Category Filter Pills (Modern Style Rounded Full) */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full bg-[#f4f7ff] dark:bg-[#070d1e] border border-blue-100/90 dark:border-blue-900/60 shadow-xs backdrop-blur-md">
             {filterTabs.map((tab) => {
               const isActive = activeFilter === tab.id;
@@ -115,7 +115,7 @@ export const PublishedAppsSection: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
                   className="p-6 sm:p-8 lg:p-10 rounded-[28px] bg-white dark:bg-[#0B1B3D]/90 border border-blue-100/90 dark:border-blue-900/70 hover:shadow-[0_15px_45px_rgba(11,27,61,0.09)] transition-all duration-300 shadow-[0_10px_35px_rgba(11,27,61,0.05)] relative overflow-hidden"
                 >
-                  {/* Sridix Brand Top Accent Ribbon */}
+                  {/* Modern Brand Top Accent Ribbon */}
                   <div 
                     className="absolute top-0 inset-x-0 h-1 opacity-90"
                     style={{ backgroundColor: app.accentColor || '#0d6efd' }}
@@ -185,7 +185,7 @@ export const PublishedAppsSection: React.FC = () => {
                         {app.description}
                       </p>
 
-                      {/* My Contribution Section (Sridix Style Box) */}
+                      {/* My Contribution Section (Modern Style Box) */}
                       <div className="bg-[#f8fbff] dark:bg-[#070d1e] p-4 sm:p-5 rounded-2xl border border-blue-100/80 dark:border-blue-900/60">
                         <div className="text-xs font-bold text-[#0B1B3D] dark:text-white mb-2.5 flex items-center gap-1.5 uppercase tracking-wide">
                           <Layers className="w-3.5 h-3.5 text-[#0d6efd] dark:text-blue-400" />
@@ -259,13 +259,13 @@ export const PublishedAppsSection: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* View Full 8+ Apps Directory Bottom Callout */}
+        {/* View Full 11+ Apps Directory Bottom Callout */}
         <div className="mt-14 text-center">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#0B1B3D] border border-blue-200 dark:border-blue-900 text-xs sm:text-sm font-bold text-[#0B1B3D] dark:text-white hover:border-[#0d6efd] shadow-sm hover:shadow-md transition-all group"
           >
-            <span>Explore All 8+ Apps, Flutter Web Admin Panels &amp; Websites</span>
+            <span>Explore All 11+ Apps, Flutter Web Admin Panels &amp; Websites</span>
             <ArrowRight className="w-4 h-4 text-[#0d6efd] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
