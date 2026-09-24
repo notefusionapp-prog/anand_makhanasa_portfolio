@@ -33,27 +33,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenResume }) => {
     "@graph": [
       {
         "@type": "ProfilePage",
-        "@id": "https://anandmakhanasa.com/about#webpage",
-        "url": "https://anandmakhanasa.com/about",
+        "@id": "https://anand-makhanasa-portfolio.netlify.app/about#webpage",
+        "url": "https://anand-makhanasa-portfolio.netlify.app/about",
         "name": "About Anand Makhanasa — Senior Flutter & Mobile Application Developer",
         "isPartOf": {
           "@type": "WebSite",
-          "@id": "https://anandmakhanasa.com/#website",
-          "url": "https://anandmakhanasa.com/",
+          "@id": "https://anand-makhanasa-portfolio.netlify.app/#website",
+          "url": "https://anand-makhanasa-portfolio.netlify.app/",
           "name": "Anand Makhanasa"
         },
         "mainEntity": {
-          "@id": "https://anandmakhanasa.com/#person"
+          "@id": "https://anand-makhanasa-portfolio.netlify.app/#person"
         },
         "description": "Professional biography, Flutter expertise, mobile engineering portfolio, verified experience, and production applications of Anand Makhanasa."
       },
       {
         "@type": "Person",
-        "@id": "https://anandmakhanasa.com/#person",
+        "@id": "https://anand-makhanasa-portfolio.netlify.app/#person",
         "name": "Anand Makhanasa",
         "jobTitle": "Senior Flutter & Mobile Application Developer",
-        "url": "https://anandmakhanasa.com/about",
-        "image": "https://anandmakhanasa.com/profile.webp",
+        "url": "https://anand-makhanasa-portfolio.netlify.app/about",
+        "image": "https://anand-makhanasa-portfolio.netlify.app/profile.webp",
         "email": "mailto:anandmakhanasa1631@gmail.com",
         "telephone": "+919537107504",
         "address": {

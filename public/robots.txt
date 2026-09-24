@@ -1,5 +1,5 @@
 # robots.txt for Anand Makhanasa — Senior Flutter & Mobile Application Developer
-# Website: https://anandmakhanasa.com/
+# Website: https://anand-makhanasa-portfolio.netlify.app/
 
 User-agent: *
 Allow: /
@@ -16,4 +16,4 @@ Allow: /og-image.png
 Allow: /google1105b5e7e4e70e73.html
 
 # Sitemaps
-Sitemap: https://anandmakhanasa.com/sitemap.xml
+Sitemap: https://anand-makhanasa-portfolio.netlify.app/sitemap.xml

@@ -32,14 +32,14 @@ export const ProjectsPage: React.FC = () => {
   const projectsCollectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": "https://anandmakhanasa.com/projects#webpage",
-    "url": "https://anandmakhanasa.com/projects",
+    "@id": "https://anand-makhanasa-portfolio.netlify.app/projects#webpage",
+    "url": "https://anand-makhanasa-portfolio.netlify.app/projects",
     "name": "Published Mobile Applications, Flutter Web & Websites — Anand Makhanasa",
     "description": "Production Flutter mobile applications (11+ on Google Play Store), Flutter Web admin consoles, and SEO-optimized websites engineered and maintained by Anand Makhanasa.",
     "isPartOf": {
       "@type": "WebSite",
-      "@id": "https://anandmakhanasa.com/#website",
-      "url": "https://anandmakhanasa.com/",
+      "@id": "https://anand-makhanasa-portfolio.netlify.app/#website",
+      "url": "https://anand-makhanasa-portfolio.netlify.app/",
       "name": "Anand Makhanasa"
     },
     "mainEntity": {
@@ -51,13 +51,13 @@ export const ProjectsPage: React.FC = () => {
           "@type": app.projectType === 'website' ? "WebSite" : app.deviceType === 'browser' ? "WebApplication" : "SoftwareApplication",
           "name": app.name,
           "description": app.description,
-          "url": `https://anandmakhanasa.com/projects/${app.id}`,
+          "url": `https://anand-makhanasa-portfolio.netlify.app/projects/${app.id}`,
           "downloadUrl": app.playStoreUrl,
           "applicationCategory": app.category || "SoftwareApplication",
           "author": {
             "@type": "Person",
             "name": "Anand Makhanasa",
-            "url": "https://anandmakhanasa.com/"
+            "url": "https://anand-makhanasa-portfolio.netlify.app/"
           }
         }
       }))

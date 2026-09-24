@@ -47,36 +47,36 @@ export const ProjectDetailPage: React.FC = () => {
     ? {
         "@context": "https://schema.org",
         "@type": app.projectType === 'website' ? "WebSite" : "WebApplication",
-        "@id": `https://anandmakhanasa.com/projects/${app.id}#${app.projectType === 'website' ? 'website' : 'webapplication'}`,
+        "@id": `https://anand-makhanasa-portfolio.netlify.app/projects/${app.id}#${app.projectType === 'website' ? 'website' : 'webapplication'}`,
         "name": app.name,
         "description": app.description,
-        "url": app.liveUrl || `https://anandmakhanasa.com/projects/${app.id}`,
-        "image": app.screenshots && app.screenshots[0] ? `https://anandmakhanasa.com${app.screenshots[0]}` : undefined,
+        "url": app.liveUrl || `https://anand-makhanasa-portfolio.netlify.app/projects/${app.id}`,
+        "image": app.screenshots && app.screenshots[0] ? `https://anand-makhanasa-portfolio.netlify.app${app.screenshots[0]}` : undefined,
         "author": {
           "@type": "Person",
-          "@id": "https://anandmakhanasa.com/#person",
+          "@id": "https://anand-makhanasa-portfolio.netlify.app/#person",
           "name": "Anand Makhanasa",
           "jobTitle": "Senior Flutter & Mobile Application Developer",
-          "url": "https://anandmakhanasa.com/about"
+          "url": "https://anand-makhanasa-portfolio.netlify.app/about"
         }
       }
     : {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "@id": `https://anandmakhanasa.com/projects/${app.id}#softwareapplication`,
+        "@id": `https://anand-makhanasa-portfolio.netlify.app/projects/${app.id}#softwareapplication`,
         "name": app.name,
         "description": app.description,
         "applicationCategory": app.category ? `${app.category.charAt(0).toUpperCase() + app.category.slice(1)}Application` : "MobileApplication",
         "operatingSystem": "Android",
-        "url": `https://anandmakhanasa.com/projects/${app.id}`,
-        "image": app.screenshots && app.screenshots[0] ? `https://anandmakhanasa.com${app.screenshots[0]}` : undefined,
+        "url": `https://anand-makhanasa-portfolio.netlify.app/projects/${app.id}`,
+        "image": app.screenshots && app.screenshots[0] ? `https://anand-makhanasa-portfolio.netlify.app${app.screenshots[0]}` : undefined,
         "downloadUrl": app.playStoreUrl,
         "author": {
           "@type": "Person",
-          "@id": "https://anandmakhanasa.com/#person",
+          "@id": "https://anand-makhanasa-portfolio.netlify.app/#person",
           "name": "Anand Makhanasa",
           "jobTitle": "Senior Flutter & Mobile Application Developer",
-          "url": "https://anandmakhanasa.com/about"
+          "url": "https://anand-makhanasa-portfolio.netlify.app/about"
         }
       };
 
@@ -92,7 +92,7 @@ export const ProjectDetailPage: React.FC = () => {
         title={pageTitle}
         description={app.description.length > 150 ? `${app.description.slice(0, 147)}...` : app.description}
         canonicalPath={`/projects/${app.id}`}
-        ogImage={app.screenshots && app.screenshots[0] ? `https://anandmakhanasa.com${app.screenshots[0]}` : undefined}
+        ogImage={app.screenshots && app.screenshots[0] ? `https://anand-makhanasa-portfolio.netlify.app${app.screenshots[0]}` : undefined}
         structuredData={structuredData}
       />
 

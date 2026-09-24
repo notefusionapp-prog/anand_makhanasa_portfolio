@@ -9,7 +9,7 @@ interface SEOHeadProps {
   structuredData?: object | object[];
 }
 
-const DOMAIN = 'https://anandmakhanasa.com';
+const DOMAIN = 'https://anand-makhanasa-portfolio.netlify.app';
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,

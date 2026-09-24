@@ -3,14 +3,14 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Primary Homepage: Anand Makhanasa — Senior Flutter & Mobile Application Developer -->
+  <!-- Primary Homepage: Anand Makhanasa — Senior Flutter and Mobile Application Developer -->
   <url>
-    <loc>https://anandmakhanasa.com/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/profile.webp</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/profile.webp</image:loc>
       <image:title>Anand Makhanasa — Senior Flutter &amp; Mobile Application Developer</image:title>
       <image:caption>Anand Makhanasa profile portrait, Senior Flutter &amp; Mobile Developer</image:caption>
     </image:image>
@@ -18,12 +18,12 @@
 
   <!-- Dedicated Personal Profile Page: /about -->
   <url>
-    <loc>https://anandmakhanasa.com/about</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/about</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/profile.webp</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/profile.webp</image:loc>
       <image:title>About Anand Makhanasa — Senior Flutter &amp; Mobile Developer</image:title>
       <image:caption>Personal profile and technical career portfolio of Anand Makhanasa</image:caption>
     </image:image>
@@ -31,117 +31,184 @@
 
   <!-- Canonical Alias: /anand-makhanasa -->
   <url>
-    <loc>https://anandmakhanasa.com/anand-makhanasa</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/anand-makhanasa</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Published Applications & Projects Hub: /projects -->
+  <!-- Published Applications and Projects Hub: /projects -->
   <url>
-    <loc>https://anandmakhanasa.com/projects</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Individual Project Pages: Indexable SoftwareApplication URLs -->
+  <!-- 1. Hira Diary: Diamond Hishab -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/hira-diary</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/hira-diary</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/hira-diary/screen-01.webp</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/hira-diary/screen-01.webp</image:loc>
       <image:title>Hira Diary: Diamond Hishab Flutter Mobile Application</image:title>
     </image:image>
   </url>
 
+  <!-- 2. Smart NoteFusion: Expense Note -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/smart-notefusion</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/smart-notefusion</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/smart-notefusion/screen-01.webp</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/smart-notefusion/screen-01.webp</image:loc>
       <image:title>Smart NoteFusion: Expense Note Flutter Mobile Application</image:title>
     </image:image>
   </url>
 
+  <!-- 3. Tech Info Hub -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/tech-info-hub</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/tech-info-hub</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/tech-info-hub/screen-01.webp</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/tech-info-hub/screen-01.webp</image:loc>
       <image:title>Tech Info Hub Mobile Application by Anand Makhanasa</image:title>
     </image:image>
   </url>
 
+  <!-- 4. Vyonic - Health and Fitness -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/kids-quiz</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/vyonic</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/kids-quiz/screen-01.webp</image:loc>
-      <image:title>Kids Quiz: Learning &amp; Trivia Flutter Application by Anand Makhanasa</image:title>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/vyonic/screen-01.webp</image:loc>
+      <image:title>Vyonic: Health &amp; Fitness Flutter Mobile Application</image:title>
     </image:image>
   </url>
 
+  <!-- 5. Art Puzzle Story : Jigsaw -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/status-craft</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/art-puzzle</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/status-craft/screen-01.webp</image:loc>
-      <image:title>Status Craft: Media &amp; Video Saver Application by Anand Makhanasa</image:title>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/art-puzzle/screen-01.webp</image:loc>
+      <image:title>Art Puzzle Story : Jigsaw Mobile Game by Anand Makhanasa</image:title>
     </image:image>
   </url>
 
+  <!-- 6. Doc Scanner Pro – PDF Maker -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/arrow-puzzle</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/doc-scanner</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/arrow-puzzle/screen-01.webp</image:loc>
-      <image:title>Arrow Puzzle: Tap Away Mobile Game by Anand Makhanasa</image:title>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/doc-scanner/screen-01.webp</image:loc>
+      <image:title>Doc Scanner Pro – PDF Maker Application by Anand Makhanasa</image:title>
     </image:image>
   </url>
 
-  <!-- New Web & Admin Projects by Anand Makhanasa -->
+  <!-- 7. Astro Live Chat -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/smart-notefusion-admin</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/astro-live-chat</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/smart-notefusion-admin/screen-01.png</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/astro-live-chat/screen-01.webp</image:loc>
+      <image:title>Astro Live Chat Astrology Consultation Application</image:title>
+    </image:image>
+  </url>
+
+  <!-- 8. AstroLiveChat Partners -->
+  <url>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/astro-live-chat-partner</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/astro-live-chat-partner/screen-01.webp</image:loc>
+      <image:title>AstroLiveChat Partners Astrologer Console Application</image:title>
+    </image:image>
+  </url>
+
+  <!-- 9. Kids Quiz: Learning and Trivia -->
+  <url>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/kids-quiz</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/kids-quiz/screen-01.webp</image:loc>
+      <image:title>Kids Quiz: Learning &amp; Trivia Flutter Application</image:title>
+    </image:image>
+  </url>
+
+  <!-- 10. Status Craft: Media and Video Saver -->
+  <url>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/status-craft</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/media-vault/screen-01.webp</image:loc>
+      <image:title>Status Craft: Media &amp; Video Saver Application</image:title>
+    </image:image>
+  </url>
+
+  <!-- 11. Arrow Puzzle: Tap Away -->
+  <url>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/arrow-puzzle</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/arrow-puzzle/screen-01.webp</image:loc>
+      <image:title>Arrow Puzzle: Tap Away Mobile Game</image:title>
+    </image:image>
+  </url>
+
+  <!-- 12. Smart NoteFusion Admin Panel (Flutter Web) -->
+  <url>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/smart-notefusion-admin</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/smart-notefusion-admin/screen-01.png</image:loc>
       <image:title>Smart NoteFusion Admin Panel — Flutter Web Console</image:title>
     </image:image>
   </url>
 
+  <!-- 13. Smart NoteFusion Official Website -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/smart-notefusion-website</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/smart-notefusion-website</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/smart-notefusion-website/screen-01.png</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/smart-notefusion-website/screen-01.png</image:loc>
       <image:title>Smart NoteFusion Official Product Website</image:title>
     </image:image>
   </url>
 
+  <!-- 14. Hira Diary Official Website -->
   <url>
-    <loc>https://anandmakhanasa.com/projects/hira-diary-website</loc>
-    <lastmod>2026-09-23</lastmod>
+    <loc>https://anand-makhanasa-portfolio.netlify.app/projects/hira-diary-website</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://anandmakhanasa.com/images/projects/hira-diary-website/screen-01.png</image:loc>
+      <image:loc>https://anand-makhanasa-portfolio.netlify.app/images/projects/hira-diary-website/screen-01.png</image:loc>
       <image:title>Hira Diary Official Product Website</image:title>
     </image:image>
   </url>
