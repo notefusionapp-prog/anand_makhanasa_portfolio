@@ -164,7 +164,7 @@
   </head>
   <body class="bg-[#fbfdff] dark:bg-[#070d1e] text-[#0B1B3D] dark:text-slate-100 antialiased selection:bg-[#0d6efd]/20 selection:text-[#0d6efd] transition-colors duration-300">
     <!-- Netlify Forms Build Detection for React SPA -->
-    <form name="project-enquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form name="project-enquiry" method="POST" action="/" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="project-enquiry" />
       <input type="text" name="bot-field" />
       <input type="text" name="name" />
@@ -177,7 +177,7 @@
       <input type="text" name="source" />
     </form>
 
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form name="contact" method="POST" action="/" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="bot-field" />
       <input type="text" name="name" />

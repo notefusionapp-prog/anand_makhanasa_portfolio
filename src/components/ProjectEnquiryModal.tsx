@@ -198,6 +198,7 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                 <form
                   name="project-enquiry"
                   method="POST"
+                  action="/"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
@@ -246,6 +247,8 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                       </label>
                       <input
                         type="text"
+                        name="name"
+                        required
                         value={formData.name}
                         onChange={(e) => {
                           setFormData({ ...formData, name: e.target.value });
@@ -267,6 +270,8 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                       </label>
                       <input
                         type="email"
+                        name="email"
+                        required
                         value={formData.email}
                         onChange={(e) => {
                           setFormData({ ...formData, email: e.target.value });
@@ -291,6 +296,7 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                       </label>
                       <input
                         type="tel"
+                        name="phone"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 ..."
@@ -303,6 +309,7 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                         SERVICE OF INTEREST
                       </label>
                       <select
+                        name="service"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 focus:border-[#f95721] focus:ring-2 focus:ring-orange-500/15 text-slate-900 dark:text-white text-xs sm:text-sm outline-none transition-all cursor-pointer"
@@ -325,6 +332,7 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                         ESTIMATED BUDGET
                       </label>
                       <select
+                        name="budget"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 focus:border-[#f95721] focus:ring-2 focus:ring-orange-500/15 text-slate-900 dark:text-white text-xs sm:text-sm outline-none transition-all cursor-pointer"
@@ -342,6 +350,7 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                         TARGET TIMELINE
                       </label>
                       <select
+                        name="timeline"
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 focus:border-[#f95721] focus:ring-2 focus:ring-orange-500/15 text-slate-900 dark:text-white text-xs sm:text-sm outline-none transition-all cursor-pointer"
@@ -362,6 +371,8 @@ export const ProjectEnquiryModal: React.FC<ProjectEnquiryModalProps> = ({ isOpen
                     </label>
                     <textarea
                       rows={3}
+                      name="overview"
+                      required
                       value={formData.overview}
                       onChange={(e) => {
                         setFormData({ ...formData, overview: e.target.value });

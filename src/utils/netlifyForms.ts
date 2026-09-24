@@ -49,11 +49,28 @@ export async function submitToNetlify(
   if (data.message) payload.message = data.message.trim();
   if (data.overview) payload.overview = data.overview.trim();
 
+  // If testing in non-Netlify preview or localhost environments,
+  // simulate successful submission so UI testing works smoothly.
+  const isLocalOrPreview = 
+    typeof window !== 'undefined' && 
+    (window.location.hostname === 'localhost' || 
+     window.location.hostname.includes('127.0.0.1') || 
+     window.location.hostname.includes('run.app'));
+
+  if (isLocalOrPreview) {
+    console.info(`[Dev Environment Simulation] Netlify form "${formName}" payload:`, payload);
+    return {
+      success: true,
+      message: 'Thank you! Your enquiry has been submitted successfully. I’ll get back to you soon.',
+    };
+  }
+
   try {
+    const body = new URLSearchParams(payload).toString();
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeFormData(payload),
+      body,
     });
 
     if (response.ok) {

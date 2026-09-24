@@ -268,6 +268,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
               <form
                 name="contact"
                 method="POST"
+                action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
@@ -314,6 +315,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                     </label>
                     <input
                       type="text"
+                      name="name"
                       required
                       placeholder="e.g. Sarah Jenkins"
                       value={formData.name}
@@ -328,6 +330,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="e.g. sarah@company.com"
                       value={formData.email}
@@ -342,6 +345,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                     Project Type or Role
                   </label>
                   <select
+                    name="service"
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-full bg-[#f8fbff] dark:bg-[#070d1e] border border-blue-100 dark:border-blue-900 text-xs text-[#0B1B3D] dark:text-slate-200 focus:outline-none focus:border-[#0d6efd] dark:focus:border-blue-500 transition-colors shadow-2xs"
@@ -360,6 +364,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume }) 
                   </label>
                   <textarea
                     rows={4}
+                    name="message"
                     required
                     placeholder="Tell me about your mobile application, timeline, or position requirements..."
                     value={formData.message}
